@@ -7,43 +7,55 @@
 #    - group.bedroom
 #    - device_tracker.nise_nadzia
 #    - device_tracker.sirpa
+
 kitchen_view:
   name: Kök
   entities:
     - group.kitchen
   view: true
+
 livingroom_view:
   name: Vardagsrum
   entities:
     - group.livingroom
   view: true
+
 bedroom_view:
   name: Sovrum
   entities:
     - group.bedroom
-    - group.wakeup
   view: true
+
 window_light_view:
   name: Fönsterlampor
   entities:
     - group.window_lights
   view: true
+
 temperatures_view:
   name: Temperaturer
   entities:
     - group.temperatures
   view: true
+
 weather_view:
   name: Väder
   entities:
     - group.weather
     - group.yr
   view: true
+
 computer_view:
   name: Datorer
   entities:
     - group.nas
     - group.raspberry
+  view: true
+
+settings_view:
+  name: Inställningar
+  entities:
+    - group.wakeup
   view: true
 
 #### GROUPS
@@ -60,6 +72,7 @@ kitchen:
     - sensor.fibaro_system_fgwpef_wall_plug_gen5_energy
     - automation.starta_kaffebryggaren_pa_morgonen
     - automation.stang_av_kaffebryggaren_efter_30_minuter
+
 livingroom:
   name: Vardagsrum
   entities:
@@ -72,6 +85,7 @@ livingroom:
     - sensor.netatmo_vardagsrum_noise
     - sensor.netatmo_vardagsrum_pressure
     - sensor.netatmo_vardagsrum_temperature
+
 bedroom:
   name: Sovrum
   entities:
@@ -80,6 +94,7 @@ bedroom:
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
     - switch.sanglampa
+
 window_lights:
   name: Fönsterlampor
   entities:
@@ -89,6 +104,7 @@ window_lights:
     - switch.win_kitchen1
     - switch.win_kitchen2
     - switch.win_bedroom
+
 temperatures:
   name: Temperaturer
   entities:
@@ -100,6 +116,7 @@ temperatures:
     - sensor.netatmo_ute_soder_temperature
     - sensor.cputemperature
     - sensor.cputemperatur_pi
+
 weather:
   name: Väderstation
   entities:
@@ -113,6 +130,7 @@ weather:
     - sensor.netatmo_ute_soder_battery
     - sensor.netatmo_ute_soder_radio
     - sensor.netatmo_vardagsrum_wifi
+
 yr:
   name: Yr
   entities:
@@ -170,3 +188,5 @@ wakeup:
     - sensor.alarm_time
     - input_slider.alarmhour
     - input_slider.alarmminutes
+    - input_slider.bedroom_brightness
+    - input_slider.bedroom_transition

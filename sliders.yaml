@@ -13,3 +13,17 @@ alarmminutes:
   min: 0
   max: 59
   step: 1
+
+bedroom_brightness:
+  name: Brightness
+  initial: 254
+  min: 0
+  max: 254
+  step: 1
+
+bedroom_transition:
+  name: Transition
+  initial: 3600
+  min: 0
+  max: 7200
+  step: 60

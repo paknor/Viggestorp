@@ -108,10 +108,10 @@
       value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}'
   action:
     service: light.turn_on
-    data:
+    data_template:
       entity_id: light.fibaro_system_fgd212_dimmer_2_level
-      brightness: 160
-      transition: 3600
+      brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
+      transition: '{{ states.input_slider.bedroom_transition.state | int }}'
 
 #### SONOFF
 - alias: Sonoff01 on
