@@ -1,0 +1,13 @@
+﻿- id: TÄND_FÖNSTERLAMPOR
+  alias: Tänd fönsterlampor innan solen går ner
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:40:00"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.fonsterlampor_pa
+    - service: notify.pushbullet
+      data:
+        message: 'Tänder fönsterlampor'
+        title: 'Home Assistant'

@@ -1,0 +1,172 @@
+﻿#### VIEWS
+#default_view:
+#  view: yes
+#  entities:
+#    - group.kitchen
+#    - group.livingroom
+#    - group.bedroom
+#    - device_tracker.nise_nadzia
+#    - device_tracker.sirpa
+kitchen_view:
+  name: Kök
+  entities:
+    - group.kitchen
+  view: true
+livingroom_view:
+  name: Vardagsrum
+  entities:
+    - group.livingroom
+  view: true
+bedroom_view:
+  name: Sovrum
+  entities:
+    - group.bedroom
+    - group.wakeup
+  view: true
+window_light_view:
+  name: Fönsterlampor
+  entities:
+    - group.window_lights
+  view: true
+temperatures_view:
+  name: Temperaturer
+  entities:
+    - group.temperatures
+  view: true
+weather_view:
+  name: Väder
+  entities:
+    - group.weather
+    - group.yr
+  view: true
+computer_view:
+  name: Datorer
+  entities:
+    - group.nas
+    - group.raspberry
+  view: true
+
+#### GROUPS
+kitchen:
+  name: Kök
+  entities:
+    - sensor.tunex_5401_temp
+    - sensor.tunex_0701_temp
+    - switch.win_kitchen1
+    - switch.win_kitchen2
+    - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+    - sensor.coffee_brewing
+    - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+    - sensor.fibaro_system_fgwpef_wall_plug_gen5_energy
+    - automation.starta_kaffebryggaren_pa_morgonen
+    - automation.stang_av_kaffebryggaren_efter_30_minuter
+livingroom:
+  name: Vardagsrum
+  entities:
+    - media_player.tv_vardagsrum
+    - media_player.slamsug
+    - switch.win_livingroom_1
+    - switch.win_livingroom_2
+    - sensor.netatmo_vardagsrum_co2
+    - sensor.netatmo_vardagsrum_humidity
+    - sensor.netatmo_vardagsrum_noise
+    - sensor.netatmo_vardagsrum_pressure
+    - sensor.netatmo_vardagsrum_temperature
+bedroom:
+  name: Sovrum
+  entities:
+    - switch.win_bedroom
+    - light.fibaro_system_fgd212_dimmer_2_level
+    - sensor.fibaro_system_fgd212_dimmer_2_power
+    - sensor.fibaro_system_fgd212_dimmer_2_energy
+    - switch.sanglampa
+window_lights:
+  name: Fönsterlampor
+  entities:
+    - scene.fonsterlampor_pa
+    - switch.win_livingroom_1
+    - switch.win_livingroom_2
+    - switch.win_kitchen1
+    - switch.win_kitchen2
+    - switch.win_bedroom
+temperatures:
+  name: Temperaturer
+  entities:
+    - sensor.tunex_5401_temp
+    - sensor.tunex_0701_temp
+    - sensor.tunex_8801_temp
+    - sensor.upm_esic_0001_temp
+    - sensor.netatmo_vardagsrum_temperature
+    - sensor.netatmo_ute_soder_temperature
+    - sensor.cputemperature
+    - sensor.cputemperatur_pi
+weather:
+  name: Väderstation
+  entities:
+    - sensor.netatmo_ute_soder_humidity
+    - sensor.netatmo_ute_soder_temperature
+    - sensor.netatmo_vardagsrum_co2
+    - sensor.netatmo_vardagsrum_humidity
+    - sensor.netatmo_vardagsrum_noise
+    - sensor.netatmo_vardagsrum_pressure
+    - sensor.netatmo_vardagsrum_temperature
+    - sensor.netatmo_ute_soder_battery
+    - sensor.netatmo_ute_soder_radio
+    - sensor.netatmo_vardagsrum_wifi
+yr:
+  name: Yr
+  entities:
+    - sun.sun
+    - sensor.moon
+    - sensor.yr_symbol
+    - sensor.yr_precipitation
+    - sensor.yr_cloudiness
+    - sensor.yr_high_clouds
+    - sensor.yr_medium_clouds
+    - sensor.yr_low_clouds
+    - sensor.yr_fog
+    - sensor.yr_temperature
+    - sensor.yr_dewpoint_temperature
+    - sensor.yr_humidity
+    - sensor.yr_pressure
+    - sensor.yr_wind_direction
+    - sensor.yr_wind_speed
+
+nas:
+  name: NAS
+  entities:
+    - sensor.cputemperature
+    - sensor.hd1temperature
+    - sensor.hd2temperature
+    - sensor.cpu_load_total
+    - sensor.memory_usage_real
+    - sensor.network_down
+    - sensor.network_up
+    - sensor.total_size_volume_1
+    - sensor.space_left
+    - sensor.used_space_volume_1
+    - sensor.volume_used_volume_1
+    - camera.raspberry_pi_camera
+
+raspberry:
+  name: Raspberry Pi
+  entities:
+    - sensor.since_last_boot
+    - sensor.hass_uptime
+    - sensor.average_load_1m
+    - sensor.average_load_5m
+    - sensor.average_load_15m
+    - sensor.cpu_use
+    - sensor.cputemperatur_pi
+    - sensor.database
+    - sensor.disk_use_
+    - sensor.ram_free
+    - sensor.ram_use
+
+wakeup:
+  name: Taklampa sovrum
+  entities:
+    - automation.taklampa_sovrum
+    - sensor.alarm_time
+    - input_slider.alarmhour
+    - input_slider.alarmminutes

@@ -1,0 +1,8 @@
+- name: Caverion
+  latitude: 58.7025983
+  longitude: 15.8009411
+  radius: 100
+- name: Betaren
+  latitude: 58.706921
+  longitude: 15.750586
+  radius: 100

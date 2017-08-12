@@ -1,0 +1,62 @@
+﻿- platform: mqtt
+  name: "Skarvsladd 1"
+  command_topic: "cmnd/sonoff01/power"
+  state_topic: "stat/sonoff01/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  
+- platform: mqtt
+  name: "Sänglampa"
+  command_topic: "cmnd/sonoff02/power"
+  state_topic: "stat/sonoff02/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "win_kitchen1"
+  command_topic: "cmnd/sonoff03/power"
+  state_topic: "stat/sonoff03/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "win_kitchen2"
+  command_topic: "cmnd/sonoff04/power"
+  state_topic: "stat/sonoff04/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "win_bedroom"
+  command_topic: "cmnd/sonoff05/power"
+  state_topic: "stat/sonoff05/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "win_livingroom_1"
+  command_topic: "cmnd/sonoff06/power"
+  state_topic: "stat/sonoff06/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "win_livingroom_2"
+  command_topic: "cmnd/sonoff07/power"
+  state_topic: "stat/sonoff07/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

@@ -1,0 +1,12 @@
+﻿- name: Fönsterlampor_på
+  entities:
+    switch.win_livingroom_1:
+      state: on
+    switch.win_livingroom_2:
+      state: on
+    switch.win_bedroom:
+      state: on
+    switch.win_kitchen1:
+      state: on
+    switch.win_kitchen2:
+      state: on

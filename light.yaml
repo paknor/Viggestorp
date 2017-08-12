@@ -1,0 +1,21 @@
+﻿- platform: rflink
+  device_defaults:
+    fire_event: true
+    signal_repetitions: 2
+#  devices:
+#    newkaku_00d8893a_1:
+#      name: win_livingroom_2
+#      type: dimmable
+#    newkaku_00d8893a_2:
+#      name: win_livingroom_1
+#      type: dimmable
+
+- platform: mqtt_json
+  name: "SN1 LED"
+  state_topic: "bruh/sensornode1"
+  command_topic: "bruh/sensornode1/set"
+  brightness: true
+  flash: true
+  rgb: true
+  optimistic: false
+  qos: 0

@@ -1,0 +1,162 @@
+﻿homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Viggestorp
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lat
+  longitude: !secret long
+
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 51
+
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  ssl_certificate: /etc/letsencrypt/live/pi.einarsson.se/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/pi.einarsson.se/privkey.pem
+  base_url: pi.einarsson.se
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+recorder:
+  purge_days: 1
+
+# Track the sun
+sun:
+  
+# Text to speech
+tts:
+  platform: google
+
+# Shopping list
+#shopping_list:
+
+rflink:
+  port: /dev/ttyACM1
+
+notify:
+  - name: Pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api
+  
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/homeassistant/src/python-openzwave/openzwave/config
+  new_entity_ids: true
+
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username: !secret netatmo_user
+  password: !secret netatmo_pass
+  
+mqtt:
+  broker: 192.168.0.128
+  port: 1883
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+
+media_player:
+  - platform: samsungtv
+    host: 192.168.0.112
+    mac: 48:44:f7:55:44:f2
+    name: TV vardagsrum
+    scan_interval: 15
+
+#  - platform: spotify
+#    client_id: !secret spotify_client
+#    client_secret: !secret spotify_secret
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+#panel_custom:
+#  - name: hello
+#    sidebar_title: Några saker...
+#    sidebar_icon: mdi:hand-pointing-right
+#    url_path: hello
+
+#camera:
+#  - platform: rpi_camera
+
+proximity:
+  home: 
+    devices:
+      - device_tracker.nise_nadzia
+    tolerance: 50
+    unit_of_measurement: km
+
+binary_sensor:
+  - platform: workday
+    country: DE
+
+influxdb:
+  database: db_ha
+  include:
+    entities:
+      - sensor.tunex_5401_temp
+      - sensor.tunex_0701_temp
+      - sensor.database
+      - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+      - sensor.netatmo_ute_soder_humidity
+      - sensor.netatmo_ute_soder_temperature
+      - sensor.netatmo_vardagsrum_co2
+      - sensor.netatmo_vardagsrum_humidity
+      - sensor.netatmo_vardagsrum_noise
+      - sensor.netatmo_vardagsrum_pressure
+      - sensor.netatmo_vardagsrum_temperature
+      - sensor.upm_esic_0002_temp
+      - sensor.ljus01
+
+# Shows device_tracker.nise_nadzia on a map.
+camera:
+  name: Kurt
+  platform: generic
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.nise_nadzia.attributes.latitude }},{{ states.device_tracker.nise_nadzia.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.nise_nadzia.attributes.latitude }},{{ states.device_tracker.nise_nadzia.attributes.longitude }}
+  limit_refetch_to_url_change: true
+      
+#panel_iframe:
+#  grafana:
+#    title: 'Grafer'
+#    url: 'http://192.168.0.128:3000'
+#  nodered:
+#    title: 'Node-RED'
+#    url: 'http://192.168.0.128:1880'
+
+automation: !include automation.yaml
+zone: !include zones.yaml
+sensor: !include sensors.yaml
+switch: !include switches.yaml
+device_tracker: !include device_tracker.yaml
+group: !include groups.yaml
+light: !include light.yaml
+scene: !include scenes.yaml
+input_slider: !include sliders.yaml
+# input_boolean: !include input_boolean.yaml
