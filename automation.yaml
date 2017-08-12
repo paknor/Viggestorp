@@ -1,4 +1,4 @@
-﻿#### TÄND_FÖNSTERLAMPOR
+﻿#### TÄND_FÖNSTERLAMPOR PÅ KVÄLLEN
 - alias: Tänd fönsterlampor innan solen går ner
   trigger:
     - platform: sun
