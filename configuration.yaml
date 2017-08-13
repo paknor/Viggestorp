@@ -134,6 +134,7 @@ influxdb:
       - sensor.netatmo_vardagsrum_temperature
       - sensor.upm_esic_0002_temp
       - sensor.ljus01
+      - sensor.yr_cloudiness
 
 # Shows device_tracker.nise_nadzia on a map.
 camera:
