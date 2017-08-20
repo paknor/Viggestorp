@@ -43,6 +43,20 @@ switch.win_bedroom:
   friendly_name: Sovrum fönsterlampa
   icon: mdi:lamp
 
+#### FJÄRR FÖNSTERLAMPOR
+light.newkaku_00d8893a_1:
+  friendly_name: Knapp 1
+  icon: mdi:remote
+light.newkaku_00d8893a_2:
+  friendly_name: Knapp 2
+  icon: mdi:remote
+light.newkaku_00d8893a_3:
+  friendly_name: Knapp 3
+  icon: mdi:remote
+light.newkaku_00d8893a_4:
+  friendly_name: Knapp 4
+  icon: mdi:remote
+
 #### SENSORS
 sensor.hdtotal:
   hidden: true

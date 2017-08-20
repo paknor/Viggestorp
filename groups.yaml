@@ -30,6 +30,7 @@ window_light_view:
   name: Fönsterlampor
   entities:
     - group.window_lights
+    - group.remote433
   view: true
 
 temperatures_view:
@@ -190,3 +191,11 @@ wakeup:
     - input_slider.alarmminutes
     - input_slider.bedroom_brightness
     - input_slider.bedroom_transition
+
+remote433:
+  name: Fjärr fönsterlampor
+  entities:
+    - light.newkaku_00d8893a_1
+    - light.newkaku_00d8893a_2
+    - light.newkaku_00d8893a_3
+    - light.newkaku_00d8893a_4
