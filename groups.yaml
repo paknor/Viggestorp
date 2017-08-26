@@ -61,6 +61,12 @@ settings_view:
     - group.multisensor1
   view: true
 
+misc_view:
+  name: Diverse
+  entities:
+    - group.misc
+  view: true
+
 #### GROUPS
 kitchen:
   name: Kök
@@ -115,6 +121,7 @@ temperatures:
     - sensor.tunex_0701_temp
     - sensor.tunex_8801_temp
     - sensor.upm_esic_0001_temp
+    - sensor.upm_esic_0002_temp
     - sensor.netatmo_vardagsrum_temperature
     - sensor.netatmo_ute_soder_temperature
     - sensor.cputemperature
@@ -220,8 +227,14 @@ multisensor1:
     - scene.led_red
     - scene.led_green
     - scene.led_blue
+    - scene.led_white
 #    - sensor.sn1_temperature
 #    - sensor.sn1_humidity
     - sensor.ljus01
     - sensor.is_dark
     - sensor.sn1_pir
+
+misc:
+  name: Diverse
+  entities:
+    - binary_sensor.workday_sensor

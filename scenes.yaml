@@ -31,3 +31,10 @@
       state: on
       rgb_color: [0, 0, 255]
       brightness: 200
+
+- name: LED_white
+  entities:
+    light.sn1_led:
+      state: on
+      rgb_color: [255, 255, 255]
+      brightness: 200

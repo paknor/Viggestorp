@@ -5,24 +5,35 @@ sensor.tunex_5401_bat:
   hidden: true
 sensor.tunex_5401_hum:
   hidden: true
+
 sensor.tunex_8801_temp:
   friendly_name: Ute norr
 sensor.tunex_8801_bat:
   hidden: true
 sensor.tunex_8801_hum:
   hidden: true
+
 sensor.tunex_0701_temp:
   friendly_name: Frysskåp
 sensor.tunex_0701_bat:
   hidden: true
 sensor.tunex_0701_hum:
   hidden: true
+
 sensor.upm_esic_0001_temp:
   friendly_name: Förråd
 sensor.upm_esic_0001_bat:
   hidden: true
 sensor.upm_esic_0001_hum:
   hidden: true
+
+sensor.upm_esic_0002_temp:
+  friendly_name: Verkstad
+sensor.upm_esic_0002_bat:
+  hidden: true
+sensor.upm_esic_0002_hum:
+  hidden: true
+
 sensor.cputemperature:
   friendly_name: CPU-temperatur NAS
 
