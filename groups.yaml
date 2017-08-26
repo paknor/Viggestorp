@@ -57,6 +57,8 @@ settings_view:
   name: Inställningar
   entities:
     - group.wakeup
+    - group.sonoff
+    - group.multisensor1
   view: true
 
 #### GROUPS
@@ -199,3 +201,27 @@ remote433:
     - light.newkaku_00d8893a_2
     - light.newkaku_00d8893a_3
     - light.newkaku_00d8893a_4
+
+sonoff:
+  name: Sonoff
+  entities:
+    - switch.skarvsladd_1
+    - switch.sanglampa
+    - switch.win_kitchen1
+    - switch.win_kitchen2
+    - switch.win_bedroom
+    - switch.win_livingroom_1
+    - switch.win_livingroom_2
+
+multisensor1:
+  name: Multisensor 1
+  entities:
+    - light.sn1_led
+    - scene.led_red
+    - scene.led_green
+    - scene.led_blue
+#    - sensor.sn1_temperature
+#    - sensor.sn1_humidity
+    - sensor.ljus01
+    - sensor.is_dark
+    - sensor.sn1_pir

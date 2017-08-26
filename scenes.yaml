@@ -10,3 +10,24 @@
       state: on
     switch.win_kitchen2:
       state: on
+
+- name: LED_red
+  entities:
+    light.sn1_led:
+      state: on
+      rgb_color: [255, 0, 0]
+      brightness: 200
+
+- name: LED_green
+  entities:
+    light.sn1_led:
+      state: on
+      rgb_color: [0, 255, 0]
+      brightness: 200
+
+- name: LED_blue
+  entities:
+    light.sn1_led:
+      state: on
+      rgb_color: [0, 0, 255]
+      brightness: 200

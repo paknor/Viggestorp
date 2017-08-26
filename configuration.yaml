@@ -113,10 +113,6 @@ proximity:
     tolerance: 50
     unit_of_measurement: km
 
-binary_sensor:
-  - platform: workday
-    country: DE
-
 influxdb:
   database: db_ha
   include:
@@ -161,3 +157,4 @@ light: !include light.yaml
 scene: !include scenes.yaml
 input_slider: !include sliders.yaml
 # input_boolean: !include input_boolean.yaml
+binary_sensor: !include binary_sensor.yaml

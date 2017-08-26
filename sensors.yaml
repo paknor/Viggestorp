@@ -57,6 +57,12 @@
       value_template: "{{ states.sensor.fibaro_system_fgwpef_wall_plug_gen5_power.state | float > 1000.0 }}" 
       friendly_name: "Brygger kaffe"
 
+- platform: template
+  sensors:
+    is_dark:
+      value_template: "{{ states.sensor.ljus01.state | int < 50 }}"
+      friendly_name: 'Det är mörkt'
+
 - platform: yr
   monitored_conditions:
     - temperature
@@ -169,27 +175,26 @@
       friendly_name: 'Klockslag'
       value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.alarmhour") | int, states("input_slider.alarmminutes") | int) }}'
 
-## Multisensor
+## Multisensor SN1
 - platform: mqtt
   state_topic: "bruh/sensornode1"
   name: "Ljus01"
   unit_of_measurement: '%'
   value_template: '{{ value_json.ldr }}'
 
+#- platform: mqtt  
+#  state_topic: "bruh/sensornode1"  
+#  name: "SN1 Temperature"  
+#  unit_of_measurement: "°C"  
+#  value_template: '{{ value_json.temperature | round(1) }}'  
+
+#- platform: mqtt  
+#  state_topic: "bruh/sensornode1"  
+#  name: "SN1 Humidity"  
+#  unit_of_measurement: "%"  
+#  value_template: '{{ value_json.humidity | round(1) }}'
+
 - platform: mqtt  
   state_topic: "bruh/sensornode1"  
-  name: "SN1 Temperature"  
-  unit_of_measurement: "°C"  
-  value_template: '{{ value_json.temperature | round(1) }}'  
-
-- platform: mqtt
-  state_topic: "bruh/sensornode1"
-  name: "SN1 Real Feel"
-  unit_of_measurement: "°C"
-  value_template: '{{ value_json.heatIndex | round(1) }}'
-
-- platform: mqtt  
-  state_topic: "bruh/sensornode1"  
-  name: "SN1 Humidity"  
-  unit_of_measurement: "%"  
-  value_template: '{{ value_json.humidity | round(1) }}'
+  name: "SN1 PIR"  
+  value_template: '{{ value_json.motion }}'

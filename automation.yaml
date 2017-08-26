@@ -12,6 +12,20 @@
         message: 'Tänder fönsterlampor'
         title: 'Home Assistant'
 
+#### TÄND_FÖNSTERLAMPOR PÅ KVÄLLEN MED LJUSSENSOR
+- alias: Tänd fönsterlampor när det mörknar
+  trigger:
+    - platform: state
+      entity_id: sensor.is_dark
+      from: 'False'
+      to: 'True'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.sn1_led
+      brightness: 200
+      rgb_color: [255, 0, 0]
+
 #### SLÄCK FÖNSTERLAMPOR
 - alias: Släck fönsterlampor
   trigger:
@@ -315,3 +329,27 @@
   action:
     service: light.turn_off
     entity_id: light.newkaku_00d8893a_4
+
+#### RÖRELSE
+- alias: Tänd LED vid rörelse
+  trigger:
+    platform: state
+    entity_id: sensor.sn1_pir
+    to: 'motion detected'
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.sn1_led
+      brightness: 200
+      rgb_color: [0, 0, 255]
+
+- alias: Släck LED vid rörelse
+  trigger:
+    platform: state
+    entity_id: sensor.sn1_pir
+    to: 'standby'
+    for:
+      minutes: 1
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.sn1_led
