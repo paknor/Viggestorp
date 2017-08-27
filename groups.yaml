@@ -28,6 +28,7 @@ bedroom_view:
 
 window_light_view:
   name: Fönsterlampor
+  icon: mdi:lamp
   entities:
     - group.window_lights
     - group.remote433
@@ -35,6 +36,7 @@ window_light_view:
 
 temperatures_view:
   name: Temperaturer
+  icon: mdi:temperature-celsius
   entities:
     - group.temperatures
   view: true
@@ -49,6 +51,7 @@ weather_view:
 
 computer_view:
   name: Datorer
+  icon: mdi:desktop-classic
   entities:
     - group.nas
     - group.raspberry
@@ -56,8 +59,10 @@ computer_view:
 
 settings_view:
   name: Inställningar
+  icon: mdi:settings
   entities:
     - group.wakeup
+    - group.coffee
   view: true
 
 misc_view:
@@ -82,7 +87,8 @@ kitchen:
     - sensor.coffee_brewing
     - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
     - sensor.fibaro_system_fgwpef_wall_plug_gen5_energy
-    - automation.starta_kaffebryggaren_pa_morgonen
+    - automation.starta_kaffebryggaren
+    - sensor.coffee_time
     - automation.stang_av_kaffebryggaren_efter_30_minuter
 
 livingroom:
@@ -103,6 +109,8 @@ bedroom:
   entities:
     - switch.win_bedroom
     - light.fibaro_system_fgd212_dimmer_2_level
+    - automation.taklampa_sovrum
+    - sensor.bedroom_time
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
     - switch.sanglampa
@@ -200,11 +208,19 @@ wakeup:
   name: Taklampa sovrum
   entities:
     - automation.taklampa_sovrum
-    - sensor.alarm_time
-    - input_slider.alarmhour
-    - input_slider.alarmminutes
+    - sensor.bedroom_time
+    - input_slider.bedroom_hour
+    - input_slider.bedroom_minutes
     - input_slider.bedroom_brightness
     - input_slider.bedroom_transition
+
+coffee:
+  name: Kaffebryggare
+  entities:
+    - automation.starta_kaffebryggaren
+    - sensor.coffee_time
+    - input_slider.coffee_hour
+    - input_slider.coffee_minutes
 
 remote433:
   name: Fjärr fönsterlampor

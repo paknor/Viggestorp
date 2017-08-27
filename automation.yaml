@@ -75,11 +75,27 @@
 #      brightness: 25
 
 #### Starta kaffebryggaren på morgonen
-- alias: Starta kaffebryggaren på morgonen
+#- alias: Starta kaffebryggaren på morgonen
+#  initial_state: 'off'
+#  trigger:
+#    - platform: time
+#      at: '05:40:00'
+#  action: 
+#    - service: switch.turn_on
+#      entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+#    - service: automation.turn_off
+#      entity_id: automation.starta_kaffebryggaren_pa_morgonen
+
+#### Starta kaffebryggaren
+- alias: "Starta kaffebryggaren"
   initial_state: 'off'
   trigger:
     - platform: time
-      at: '05:40:00'
+      minutes: '/1'
+      seconds: 0
+  condition:
+    - condition: template
+      value_template: '{{ now().strftime("%H:%M") == states.sensor.coffee_time.state }}'
   action: 
     - service: switch.turn_on
       entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
@@ -119,7 +135,7 @@
       seconds: 0
   condition:
     - condition: template
-      value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}'
+      value_template: '{{ now().strftime("%H:%M") == states.sensor.bedroom_time.state }}'
   action:
     service: light.turn_on
     data_template:

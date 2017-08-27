@@ -1,4 +1,5 @@
-﻿alarmhour:
+﻿####### Taklampa sovrum
+bedroom_hour:
   name: Timme
   icon: mdi:timer
   initial: 5
@@ -6,7 +7,7 @@
   max: 23
   step: 1
 
-alarmminutes:
+bedroom_minutes:
   name: Minut
   icon: mdi:timer
   initial: 30
@@ -23,7 +24,24 @@ bedroom_brightness:
 
 bedroom_transition:
   name: Transition
-  initial: 3600
+  initial: 7200
   min: 0
   max: 7200
   step: 60
+
+####### Kaffebryggare
+coffee_hour:
+  name: Timme
+  icon: mdi:timer
+  initial: 5
+  min: 0
+  max: 23
+  step: 1
+
+coffee_minutes:
+  name: Minut
+  icon: mdi:timer
+  initial: 40
+  min: 0
+  max: 59
+  step: 1
