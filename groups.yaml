@@ -41,6 +41,7 @@ temperatures_view:
 
 weather_view:
   name: Väder
+  icon: mdi:weather-partlycloudy
   entities:
     - group.weather
     - group.yr
@@ -57,14 +58,16 @@ settings_view:
   name: Inställningar
   entities:
     - group.wakeup
-    - group.sonoff
-    - group.multisensor1
   view: true
 
 misc_view:
   name: Diverse
   entities:
     - group.misc
+    - group.sonoff
+    - group.multisensor1
+    - group.multisensor2
+    - group.ke
   view: true
 
 #### GROUPS
@@ -126,6 +129,8 @@ temperatures:
     - sensor.netatmo_ute_soder_temperature
     - sensor.cputemperature
     - sensor.cputemperatur_pi
+    - sensor.temperatur_1
+    - sensor.temperatur_2
 
 weather:
   name: Väderstation
@@ -232,9 +237,24 @@ multisensor1:
 #    - sensor.sn1_humidity
     - sensor.ljus01
     - sensor.is_dark
-    - sensor.sn1_pir
+#    - sensor.sn1_pir
+
+multisensor2:
+  name: Multisensor 2
+  entities:
+    - sensor.sn2_pir
 
 misc:
   name: Diverse
   entities:
     - binary_sensor.workday_sensor
+    - calendar.kurteinarssongmailcom
+
+ke:
+  name: Kalender
+  entities:
+    - sensor.ke_start_time
+    - sensor.ke_end_time
+    - sensor.ke_message
+    - sensor.ke_description
+    - sensor.ke_location
