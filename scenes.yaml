@@ -11,6 +11,19 @@
     switch.win_kitchen2:
       state: on
 
+- name: Fönsterlampor_av
+  entities:
+    switch.win_livingroom_1:
+      state: off
+    switch.win_livingroom_2:
+      state: off
+    switch.win_bedroom:
+      state: off
+    switch.win_kitchen1:
+      state: off
+    switch.win_kitchen2:
+      state: off
+
 - name: LED_red
   entities:
     light.sn1_led:

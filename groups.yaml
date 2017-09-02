@@ -119,6 +119,7 @@ window_lights:
   name: Fönsterlampor
   entities:
     - scene.fonsterlampor_pa
+    - scene.fonsterlampor_av
     - switch.win_livingroom_1
     - switch.win_livingroom_2
     - switch.win_kitchen1

@@ -20,11 +20,11 @@
       from: 'False'
       to: 'True'
   action:
-    service: light.turn_on
-    data_template:
-      entity_id: light.sn1_led
-      brightness: 200
-      rgb_color: [255, 0, 0]
+    - service: light.turn_on
+      data_template:
+        entity_id: light.sn1_led
+        brightness: 200
+        rgb_color: [255, 0, 0]
 
 #### SLÄCK FÖNSTERLAMPOR
 - alias: Släck fönsterlampor
@@ -32,8 +32,8 @@
     - platform: time
       at: '01:00:00'
   action: 
-    service: light.turn_off
-    entity_id: group.window_lights
+    service: scene.turn_on
+    entity_id: scene.fonsterlampor_av
 
 #### SLÄCK FÖNSTERLAMPOR NÄR TVn STÄNGS AV
 - alias: Släck fönsterlampor när TVn stängs av
@@ -45,8 +45,8 @@
       to: 'off'
   action:
     - delay: '00:01:00'
-    - service: light.turn_off
-      entity_id: group.window_lights
+    - service: scene.turn_on
+      entity_id: scene.fonsterlampor_av
 
 #### DÖRRKLOCKA
 - alias: Dörrklocka
@@ -100,7 +100,7 @@
     - service: switch.turn_on
       entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
     - service: automation.turn_off
-      entity_id: automation.starta_kaffebryggaren_pa_morgonen
+      entity_id: automation.starta_kaffebryggaren
 
 #### Stäng av kaffebryggaren efter 30 minuter
 - alias: Stäng av kaffebryggaren efter 30 minuter
