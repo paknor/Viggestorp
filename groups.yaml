@@ -71,7 +71,7 @@ misc_view:
     - group.misc
     - group.sonoff
     - group.multisensor1
-    - group.multisensor2
+    - group.esp_easy1
     - group.ke
   view: true
 
@@ -138,8 +138,7 @@ temperatures:
     - sensor.netatmo_ute_soder_temperature
     - sensor.cputemperature
     - sensor.cputemperatur_pi
-    - sensor.temperatur_1
-    - sensor.temperatur_2
+    - sensor.temperatur_kallare
 
 weather:
   name: Väderstation
@@ -256,10 +255,12 @@ multisensor1:
     - sensor.is_dark
 #    - sensor.sn1_pir
 
-multisensor2:
-  name: Multisensor 2
+esp_easy1:
+  name: ESP Easy1
   entities:
     - sensor.sn2_pir
+    - sensor.temperatur_kallare
+    - sensor.luftfuktighet_kallare
 
 misc:
   name: Diverse
