@@ -206,9 +206,9 @@
 #  value_template: '{{ value_json.motion }}'
 
 ################## ESP_Easy1
-#- platform: mqtt
-#  state_topic: "ESP_Easy1/PIR/motion"
-#  name: "SN2 PIR"
+- platform: mqtt
+  state_topic: "ESP_Easy1/PIR/motion"
+  name: "SN2 PIR"
 
 - platform: mqtt
   state_topic: "ESP_Easy1/DHT22/Temperature"
@@ -223,9 +223,9 @@
   value_template: '{{ value | round(1) }}'
 
 ################## ESP_Easy2
-- platform: mqtt
-  state_topic: "ESP_Easy2/PIR/motion"
-  name: "SN2 PIR"
+#- platform: mqtt
+#  state_topic: "ESP_Easy2/PIR/motion"
+#  name: "SN2 PIR"
 
 ################## Kalender
 - platform: template
@@ -245,3 +245,13 @@
     ke_location:
       value_template: '{{ states.calendar.kurteinarssongmailcom.attributes.location }}'
       friendly_name: 'Plats'
+
+################## Sun
+- platform: template
+  sensors:
+    winlights:
+      friendly_name: 'Tänder fönsterlampor'
+      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - 2100) | timestamp_custom("%H:%M:%S") }}'
+    sun_set:
+      friendly_name: 'Solen går ner'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%H:%M:%S") }}'

@@ -14,6 +14,7 @@
 
 #### TÄND_FÖNSTERLAMPOR PÅ KVÄLLEN MED LJUSSENSOR
 - alias: Tänd fönsterlampor när det mörknar
+  initial_state: 'off'
   trigger:
     - platform: state
       entity_id: sensor.is_dark
@@ -56,7 +57,9 @@
       entity_id: light.aster_0074_01
   action:
     - service: notify.pushbullet
-      data:
+      data_template:
+        target: "device/Galaxy S6 Edge"
+        title: "Homeassistant"
         message: "Det ringer på dörren"
 
 #### Taklampa sovrum
@@ -95,7 +98,7 @@
       seconds: 0
   condition:
     - condition: template
-      value_template: '{{ now().strftime("%H:%M") == states.sensor.coffee_time.state }}'
+      value_template: '{{ now().strftime("%H:%M""%H:%M") == states.sensor.coffee_time.state }}'
   action: 
     - service: switch.turn_on
       entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
