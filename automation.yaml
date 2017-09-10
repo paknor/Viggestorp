@@ -98,7 +98,7 @@
       seconds: 0
   condition:
     - condition: template
-      value_template: '{{ now().strftime("%H:%M""%H:%M") == states.sensor.coffee_time.state }}'
+      value_template: '{{ now().strftime("%H:%M") == states.sensor.coffee_time.state }}'
   action: 
     - service: switch.turn_on
       entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch

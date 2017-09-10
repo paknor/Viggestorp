@@ -37,6 +37,10 @@ sensor.upm_esic_0002_hum:
 sensor.cputemperature:
   friendly_name: CPU-temperatur NAS
 
+#### BRANDLARM
+light.fa20rf_e5885b_01:
+  friendly_name: Brandlarm
+
 #### FÖNSTERLAMPOR
 switch.win_livingroom_1:
   friendly_name: Vardagsrum en fönsterlampa
