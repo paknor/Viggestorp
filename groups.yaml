@@ -121,7 +121,9 @@ window_lights:
     - scene.fonsterlampor_pa
     - scene.fonsterlampor_av
     - sensor.sun_set
+    - sensor.sun_set_time_left
     - sensor.winlights
+    - sensor.winlights_time_left
     - switch.win_livingroom_1
     - switch.win_livingroom_2
     - switch.win_kitchen1
@@ -161,6 +163,7 @@ yr:
   entities:
     - sun.sun
     - sensor.moon
+    - sensor.season
     - sensor.yr_symbol
     - sensor.yr_precipitation
     - sensor.yr_cloudiness

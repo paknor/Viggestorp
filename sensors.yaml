@@ -2,6 +2,8 @@
 
 - platform: moon
 
+- platform: season
+
 - platform: snmp
   host: 192.168.0.115
   name: CPU-temperature
@@ -255,3 +257,9 @@
     sun_set:
       friendly_name: 'Solen går ner'
       value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%H:%M:%S") }}'
+    sun_set_time_left:
+      friendly_name: 'Tid innan solen går ner'
+      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now())) | timestamp_custom("%H:%M:%S") }}'
+    winlights_time_left:
+      friendly_name: 'Tid innan fönsterlampor tänds'
+      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now()) - 2100) | timestamp_custom("%H:%M:%S") }}'

@@ -62,6 +62,19 @@
         title: "Homeassistant"
         message: "Det ringer på dörren"
 
+#### Brandlarm
+- alias: Brandlarm
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: light.fa20rf_e5885b_01
+  action:
+    - service: notify.pushbullet
+      data_template:
+        target: "device/Galaxy S6 Edge"
+        title: "Homeassistant"
+        message: "Brandlarm!!!"
+
 #### Taklampa sovrum
 #- alias: Taklampa sovrum
 #  trigger:
@@ -137,8 +150,13 @@
       minutes: '/1'
       seconds: 0
   condition:
-    - condition: template
-      value_template: '{{ now().strftime("%H:%M") == states.sensor.bedroom_time.state }}'
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ now().strftime("%H:%M") == states.sensor.bedroom_time.state }}'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
   action:
     service: light.turn_on
     data_template:

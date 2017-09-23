@@ -142,6 +142,10 @@ camera:
 ifttt:
   key: !secret ifttt_secret
 
+tradfri:
+  host: 192.168.0.133
+  api_key: !secret ikea_api
+
 #panel_iframe:
 #  grafana:
 #    title: 'Grafer'
