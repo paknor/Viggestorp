@@ -51,3 +51,31 @@
       state: on
       rgb_color: [255, 255, 255]
       brightness: 200
+
+- name: LED_strip_red
+  entities:
+    light.led_strip:
+      state: on
+      rgb_color: [255, 0, 0]
+      brightness: 200
+
+- name: LED_strip_green
+  entities:
+    light.led_strip:
+      state: on
+      rgb_color: [0, 255, 0]
+      brightness: 200
+
+- name: LED_strip_blue
+  entities:
+    light.led_strip:
+      state: on
+      rgb_color: [0, 0, 255]
+      brightness: 200
+
+- name: LED_strip_white
+  entities:
+    light.led_strip:
+      state: on
+      rgb_color: [255, 255, 255]
+      brightness: 200

@@ -144,7 +144,7 @@
       message: "Kaffet är färdigt"
 
 #### Taklampa sovrum
-- alias: "Taklampa sovrum"
+- alias: "Sovrum taklampa automatik"
   trigger:
     - platform: time
       minutes: '/1'
@@ -161,8 +161,8 @@
     service: light.turn_on
     data_template:
       entity_id: light.fibaro_system_fgd212_dimmer_2_level
-      brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
-      transition: '{{ states.input_slider.bedroom_transition.state | int }}'
+      brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
+      transition: '{{ states.input_number.bedroom_transition.state | int }}'
 
 #### SONOFF
 - alias: Sonoff01 on
@@ -374,8 +374,8 @@
     entity_id: sensor.sn2_pir
     to: '1'
   action:
-    service: switch.turn_on
-    entity_id: switch.skarvsladd_1
+    service: light.turn_on
+    entity_id: light.floalt_panel_ws_30x30
 
 - alias: Släck lampa efter rörelse
   trigger:
@@ -383,7 +383,7 @@
     entity_id: sensor.sn2_pir
     to: '0'
     for:
-      minutes: 1
+      minutes: 5
   action:
-    service: switch.turn_off
-    entity_id: switch.skarvsladd_1
+    service: light.turn_off
+    entity_id: light.floalt_panel_ws_30x30

@@ -45,7 +45,8 @@ history:
 logbook:
 
 recorder:
-  purge_days: 1
+  purge_interval: 1
+  purge_keep_days: 5
 
 # Track the sun
 sun:
@@ -142,9 +143,9 @@ camera:
 ifttt:
   key: !secret ifttt_secret
 
-tradfri:
-  host: 192.168.0.133
-  api_key: !secret ikea_api
+#tradfri:
+#  host: 192.168.0.133
+#  api_key: !secret ikea_api
 
 #panel_iframe:
 #  grafana:
@@ -162,6 +163,6 @@ device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
 light: !include light.yaml
 scene: !include scenes.yaml
-input_slider: !include sliders.yaml
+input_number: !include sliders.yaml
 # input_boolean: !include input_boolean.yaml
 binary_sensor: !include binary_sensor.yaml

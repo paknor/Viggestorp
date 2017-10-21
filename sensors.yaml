@@ -175,13 +175,13 @@
   sensors:
     bedroom_time:
       friendly_name: 'Klockslag'
-      value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.bedroom_hour") | int, states("input_slider.bedroom_minutes") | int) }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.bedroom_hour") | int, states("input_number.bedroom_minutes") | int) }}'
 
 - platform: template
   sensors:
     coffee_time:
       friendly_name: 'Klockslag'
-      value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.coffee_hour") | int, states("input_slider.coffee_minutes") | int) }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.coffee_hour") | int, states("input_number.coffee_minutes") | int) }}'
 
 ################## Multisensor SN1
 - platform: mqtt

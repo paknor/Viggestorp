@@ -3,81 +3,80 @@
 #  view: yes
 #  entities:
 #    - group.kitchen
-#    - group.livingroom
-#    - group.bedroom
-#    - device_tracker.nise_nadzia
-#    - device_tracker.sirpa
 
 kitchen_view:
   name: Kök
+  view: yes
   entities:
     - group.kitchen
-  view: true
 
 livingroom_view:
   name: Vardagsrum
+  view: yes
   entities:
     - group.livingroom
-  view: true
 
 bedroom_view:
   name: Sovrum
+  view: yes
   entities:
     - group.bedroom
-  view: true
-
-window_light_view:
-  name: Fönsterlampor
-  icon: mdi:lamp
-  entities:
-    - group.window_lights
-    - group.remote433
-  view: true
-
-temperatures_view:
-  name: Temperaturer
-  icon: mdi:temperature-celsius
-  entities:
-    - group.temperatures
-  view: true
-
-weather_view:
-  name: Väder
-  icon: mdi:weather-partlycloudy
-  entities:
-    - group.weather
-    - group.yr
-  view: true
-
-computer_view:
-  name: Datorer
-  icon: mdi:desktop-classic
-  entities:
-    - group.nas
-    - group.raspberry
-  view: true
-
-settings_view:
-  name: Inställningar
-  icon: mdi:settings
-  entities:
-    - group.wakeup
-    - group.coffee
-  view: true
 
 misc_view:
   name: Diverse
+  view: yes
   entities:
     - group.misc
     - group.sonoff
     - group.multisensor1
     - group.esp_easy1
     - group.ke
-  view: true
+    - group.ikea
+    - group.led_strip
+
+window_light_view:
+  name: Fönsterlampor
+  view: yes
+  icon: mdi:lamp
+  entities:
+    - group.window_lights
+    - group.remote433
+
+temperatures_view:
+  name: Temperaturer
+  view: yes
+  icon: mdi:temperature-celsius
+  entities:
+    - group.temperatures
+
+weather_view:
+  name: Väder
+  view: yes
+  icon: mdi:weather-partlycloudy
+  entities:
+    - group.weather
+    - group.yr
+
+computer_view:
+  name: Datorer
+  view: yes
+  icon: mdi:desktop-classic
+  entities:
+    - group.nas
+    - group.raspberry
+
+settings_view:
+  name: Inställningar
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.wakeup
+    - group.coffee
 
 #### GROUPS
 kitchen:
   name: Kök
+  control: hidden
   entities:
     - sensor.tunex_5401_temp
     - sensor.tunex_0701_temp
@@ -93,6 +92,7 @@ kitchen:
 
 livingroom:
   name: Vardagsrum
+  control: hidden
   entities:
     - media_player.tv_vardagsrum
     - media_player.slamsug
@@ -106,10 +106,11 @@ livingroom:
 
 bedroom:
   name: Sovrum
+  control: hidden
   entities:
     - switch.win_bedroom
     - light.fibaro_system_fgd212_dimmer_2_level
-    - automation.taklampa_sovrum
+    - automation.sovrum_taklampa_automatik
     - sensor.bedroom_time
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
@@ -117,6 +118,7 @@ bedroom:
 
 window_lights:
   name: Fönsterlampor
+  control: hidden
   entities:
     - scene.fonsterlampor_pa
     - scene.fonsterlampor_av
@@ -132,6 +134,7 @@ window_lights:
 
 temperatures:
   name: Temperaturer
+  control: hidden
   entities:
     - sensor.tunex_5401_temp
     - sensor.tunex_0701_temp
@@ -146,6 +149,7 @@ temperatures:
 
 weather:
   name: Väderstation
+  control: hidden
   entities:
     - sensor.netatmo_ute_soder_humidity
     - sensor.netatmo_ute_soder_temperature
@@ -160,6 +164,7 @@ weather:
 
 yr:
   name: Yr
+  control: hidden
   entities:
     - sun.sun
     - sensor.moon
@@ -180,6 +185,7 @@ yr:
 
 nas:
   name: NAS
+  control: hidden
   entities:
     - sensor.cputemperature
     - sensor.hd1temperature
@@ -196,6 +202,7 @@ nas:
 
 raspberry:
   name: Raspberry Pi
+  control: hidden
   entities:
     - sensor.since_last_boot
     - sensor.hass_uptime
@@ -211,24 +218,27 @@ raspberry:
 
 wakeup:
   name: Taklampa sovrum
+  control: hidden
   entities:
-    - automation.taklampa_sovrum
+    - automation.sovrum_taklampa_automatik
     - sensor.bedroom_time
-    - input_slider.bedroom_hour
-    - input_slider.bedroom_minutes
-    - input_slider.bedroom_brightness
-    - input_slider.bedroom_transition
+    - input_number.bedroom_hour
+    - input_number.bedroom_minutes
+    - input_number.bedroom_brightness
+    - input_number.bedroom_transition
 
 coffee:
   name: Kaffebryggare
+  control: hidden
   entities:
     - automation.starta_kaffebryggaren
     - sensor.coffee_time
-    - input_slider.coffee_hour
-    - input_slider.coffee_minutes
+    - input_number.coffee_hour
+    - input_number.coffee_minutes
 
 remote433:
   name: Fjärr fönsterlampor
+  control: hidden
   entities:
     - light.newkaku_00d8893a_1
     - light.newkaku_00d8893a_2
@@ -237,6 +247,7 @@ remote433:
 
 sonoff:
   name: Sonoff
+  control: hidden
   entities:
     - switch.skarvsladd_1
     - switch.sanglampa
@@ -248,6 +259,7 @@ sonoff:
 
 multisensor1:
   name: Multisensor 1
+  control: hidden
   entities:
     - light.sn1_led
     - scene.led_red
@@ -262,6 +274,7 @@ multisensor1:
 
 esp_easy1:
   name: ESP Easy1
+  control: hidden
   entities:
     - sensor.sn2_pir
     - sensor.temperatur_kallare
@@ -269,15 +282,33 @@ esp_easy1:
 
 misc:
   name: Diverse
+  control: hidden
   entities:
     - binary_sensor.workday_sensor
     - calendar.kurteinarssongmailcom
 
 ke:
   name: Kalender
+  control: hidden
   entities:
     - sensor.ke_start_time
     - sensor.ke_end_time
     - sensor.ke_message
     - sensor.ke_description
     - sensor.ke_location
+
+ikea:
+  name: Ikea
+  control: hidden
+  entities:
+    - light.floalt_panel_ws_30x30
+
+led_strip:
+  name: LEDstrip
+  control: hidden
+  entities:
+    - light.led_strip
+    - scene.led_strip_red
+    - scene.led_strip_green
+    - scene.led_strip_blue
+    - scene.led_strip_white

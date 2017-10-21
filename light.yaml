@@ -19,3 +19,10 @@
   rgb: true
   optimistic: false
   qos: 0
+  
+# Magic Home
+- platform: flux_led
+  devices:
+    192.168.0.134:
+      name: led_strip
+      mode: rgb
