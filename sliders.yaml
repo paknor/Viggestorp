@@ -45,3 +45,32 @@ coffee_minutes:
   min: 0
   max: 59
   step: 1
+
+####### LED-strip
+led_strip_r:
+  name: Röd
+  initial: 0
+  min: 0
+  max: 255
+  step: 1
+
+led_strip_g:
+  name: Grön
+  initial: 0
+  min: 0
+  max: 255
+  step: 1
+
+led_strip_b:
+  name: Blå
+  initial: 0
+  min: 0
+  max: 255
+  step: 1
+
+led_strip_bright:
+  name: Ljusstyrka
+  initial: 0
+  min: 0
+  max: 255
+  step: 1

@@ -109,7 +109,7 @@ google:
 proximity:
   home: 
     devices:
-      - device_tracker.nise_nadzia
+      - device_tracker.ke_nadzia
     tolerance: 50
     unit_of_measurement: km
 
@@ -136,7 +136,7 @@ influxdb:
 camera:
   name: Kurt
   platform: generic
-  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.nise_nadzia.attributes.latitude }},{{ states.device_tracker.nise_nadzia.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.nise_nadzia.attributes.latitude }},{{ states.device_tracker.nise_nadzia.attributes.longitude }}
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.ke_nadzia.attributes.latitude }},{{ states.device_tracker.ke_nadzia.attributes.longitude }}&zoom=16&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.ke_nadzia.attributes.latitude }},{{ states.device_tracker.ke_nadzia.attributes.longitude }}
   limit_refetch_to_url_change: true
 
 ifttt:

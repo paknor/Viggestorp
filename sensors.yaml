@@ -224,6 +224,11 @@
   unit_of_measurement: "rh"
   value_template: '{{ value | round(1) }}'
 
+- platform: mqtt
+  state_topic: "zanzito/ke/battery_level"
+  name: "Samsung 6 Edge Batteri"
+  unit_of_measurement: "%"
+
 ################## ESP_Easy2
 #- platform: mqtt
 #  state_topic: "ESP_Easy2/PIR/motion"
@@ -263,3 +268,17 @@
     winlights_time_left:
       friendly_name: 'Tid innan fönsterlampor tänds'
       value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now()) - 2100) | timestamp_custom("%H:%M:%S") }}'
+
+################## LED-strip
+- platform: template
+  sensors:
+    slider_rgb_led_strip:
+      friendly_name: 'RGB LED-strip'
+      value_template: >- 
+        {% set r = states.input_slider.led_strip_r.state | int %}
+        {% set g = states.input_slider.led_strip_g.state | int %}
+        {% set b = states.input_slider.led_strip_b.state | int %}
+        ({{ r | int }}, {{ g | int }}, {{ b | int }})
+    rgb_led_strip_pv:
+      friendly_name: 'RGB'
+      value_template: '{{ states.light.led_strip.attributes.rgb_color }}'

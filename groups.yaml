@@ -312,3 +312,9 @@ led_strip:
     - scene.led_strip_green
     - scene.led_strip_blue
     - scene.led_strip_white
+    - sensor.slider_rgb_led_strip
+    - sensor.rgb_led_strip_pv
+    - input_slider.led_strip_bright
+    - input_slider.led_strip_r
+    - input_slider.led_strip_g
+    - input_slider.led_strip_b

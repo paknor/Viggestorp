@@ -387,3 +387,31 @@
   action:
     service: light.turn_off
     entity_id: light.floalt_panel_ws_30x30
+
+#### LED-strip
+- alias: LED-strip
+  trigger:
+#    - platform: state
+#      entity_id: input_slider.led_strip_r
+#    - platform: state
+#      entity_id: input_slider.led_strip_g
+#    - platform: state
+#      entity_id: input_slider.led_strip_b
+    - platform: state
+      entity_id: input_slider.led_strip_bright
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.led_strip
+        brightness: '{{ states.input_slider.led_strip_bright.state | int }}'
+#        rgb_color: '{{ states.sensor.slider_rgb_led_strip.state }}'
+
+- alias: LED-strip-ljus
+  trigger:
+    - platform: state
+      entity_id: sensor.rgb_led_strip_pv
+  action:
+    - service: input_slider.select_value
+      data_template:
+        entity_id: input_slider.led_strip_bright
+        value: '{{ states.light.led_strip.attributes.brightness }}'
