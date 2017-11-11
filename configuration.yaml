@@ -109,7 +109,7 @@ google:
 proximity:
   home: 
     devices:
-      - device_tracker.ke_nadzia
+      - device_tracker.ke
     tolerance: 50
     unit_of_measurement: km
 
@@ -131,12 +131,13 @@ influxdb:
       - sensor.upm_esic_0002_temp
       - sensor.ljus01
       - sensor.yr_cloudiness
+      - sensor.note_8_batteri
 
-# Shows device_tracker.nise_nadzia on a map.
+# Shows device_tracker.ke on a map.
 camera:
-  name: Kurt
+  name: KE
   platform: generic
-  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.ke_nadzia.attributes.latitude }},{{ states.device_tracker.ke_nadzia.attributes.longitude }}&zoom=16&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.ke_nadzia.attributes.latitude }},{{ states.device_tracker.ke_nadzia.attributes.longitude }}
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.ke.attributes.latitude }},{{ states.device_tracker.ke.attributes.longitude }}&zoom=16&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.ke.attributes.latitude }},{{ states.device_tracker.ke.attributes.longitude }}
   limit_refetch_to_url_change: true
 
 ifttt:

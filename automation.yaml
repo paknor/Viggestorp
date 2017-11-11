@@ -162,7 +162,7 @@
     data_template:
       entity_id: light.fibaro_system_fgd212_dimmer_2_level
       brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
-      transition: '{{ states.input_slider.bedroom_transition.state | int }}'
+      transition: '{{ states.input_slider.bedroom_transition.state | int * 60 }}'
 
 #### SONOFF
 - alias: Sonoff01 on
@@ -415,3 +415,15 @@
       data_template:
         entity_id: input_slider.led_strip_bright
         value: '{{ states.light.led_strip.attributes.brightness }}'
+
+#### Stäng av uttag vid sängen kl 9 när jag inte är hemma
+- alias: Stäng av uttag vid sängen
+  trigger:
+    - platform: time
+      at: '09:00:00'
+  condition:
+    condition: template
+    value_template: "{{ not is_state('device_tracker.ke', 'home') }}"
+  action: 
+    service: switch.turn_off
+    entity_id: switch.sanglampa

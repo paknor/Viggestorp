@@ -24,10 +24,10 @@ bedroom_brightness:
 
 bedroom_transition:
   name: Transition
-  initial: 7200
+  initial: 120
   min: 0
-  max: 7200
-  step: 60
+  max: 300
+  step: 5
 
 ####### Kaffebryggare
 coffee_hour:

@@ -1,64 +1,52 @@
-﻿#### TEMPERATURER
-sensor.tunex_5401_temp:
-  friendly_name: Kylskåp
+﻿sensor.tunex_5401_temp:
+  friendly_name: "Kylskåp"
 sensor.tunex_5401_bat:
   hidden: true
 sensor.tunex_5401_hum:
   hidden: true
-
 sensor.tunex_8801_temp:
   friendly_name: Ute norr
 sensor.tunex_8801_bat:
   hidden: true
 sensor.tunex_8801_hum:
   hidden: true
-
 sensor.tunex_0701_temp:
-  friendly_name: Frysskåp
+  friendly_name: "Frysskåp"
 sensor.tunex_0701_bat:
   hidden: true
 sensor.tunex_0701_hum:
   hidden: true
-
 sensor.upm_esic_0001_temp:
-  friendly_name: Förråd
+  friendly_name: "Förråd"
 sensor.upm_esic_0001_bat:
   hidden: true
 sensor.upm_esic_0001_hum:
   hidden: true
-
 sensor.upm_esic_0002_temp:
   friendly_name: Verkstad
 sensor.upm_esic_0002_bat:
   hidden: true
 sensor.upm_esic_0002_hum:
   hidden: true
-
 sensor.cputemperature:
   friendly_name: CPU-temperatur NAS
-
-#### BRANDLARM
 light.fa20rf_e5885b_01:
   friendly_name: Brandlarm
-
-#### FÖNSTERLAMPOR
 switch.win_livingroom_1:
-  friendly_name: Vardagsrum en fönsterlampa
+  friendly_name: "Vardagsrum en fönsterlampa"
   icon: mdi:lamp
 switch.win_livingroom_2:
-  friendly_name: Vardagsrum två fönsterlampor
+  friendly_name: "Vardagsrum två fönsterlampor"
   icon: mdi:lamp
 switch.win_kitchen1:
-  friendly_name: Kök fönsterlampa 1
+  friendly_name: "Kök fönsterlampa 1"
   icon: mdi:lamp
 switch.win_kitchen2:
-  friendly_name: Kök fönsterlampa 2
+  friendly_name: "Kök fönsterlampa 2"
   icon: mdi:lamp
 switch.win_bedroom:
-  friendly_name: Sovrum fönsterlampa
+  friendly_name: "Sovrum fönsterlampa"
   icon: mdi:lamp
-
-#### FJÄRR FÖNSTERLAMPOR
 light.newkaku_00d8893a_1:
   friendly_name: Knapp 1
   icon: mdi:remote
@@ -71,8 +59,6 @@ light.newkaku_00d8893a_3:
 light.newkaku_00d8893a_4:
   friendly_name: Knapp 4
   icon: mdi:remote
-
-#### SENSORS
 sensor.hdtotal:
   hidden: true
 sensor.hdunit:
@@ -81,24 +67,14 @@ sensor.hdused:
   hidden: true
 sensor.yr_wind_direction:
   entity_picture: /local/compass.png
-
-#### MEDIA
 media_player.slamsug:
   friendly_name: Cromecast
-
-#### ZWAVE
 light.fibaro_system_fgd212_dimmer_2_level:
   friendly_name: Sovrum taklampa
 sensor.fibaro_system_fgd212_dimmer_2_power:
   friendly_name: Sovrum taklampa, effekt
 sensor.fibaro_system_fgd212_dimmer_2_energy:
   friendly_name: Sovrum taklampa, energi
-#light.fibaro_system_fgd212_dimmer_2_level:
-#  hidden: true
-#light.fibaro_system_fgd212_dimmer_2_step_size:
-#  hidden: true
-#light.fibaro_system_fgd212_dimmer_2_step_size:
-#  hidden: true
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
   friendly_name: Kaffebryggare
   icon: mdi:coffee
@@ -122,7 +98,6 @@ sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid:
   hidden: true
 sensor.fibaro_system_fgd212_dimmer_2_system:
   hidden: true
-
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_level:
   hidden: true
 sensor.fibaro_system_fgwpef_wall_plug_gen5_alarm_type:
@@ -134,4 +109,52 @@ sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2:
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_management:
   hidden: true
 sensor.fibaro_system_fgwpef_wall_plug_gen5_sourcenodeid:
+  hidden: true
+sensor.sn2_pir:
+  friendly_name: "PIR tänder floalt"
+
+########   Hall
+light.fibaro_system_fgd212_dimmer_2_level_3:
+  friendly_name: Hall taklampa 1
+sensor.fibaro_system_fgd212_dimmer_2_power_3:
+  friendly_name: Hall taklampa 1, effekt
+sensor.fibaro_system_fgd212_dimmer_2_energy_2:
+  friendly_name: Hall taklampa 1, energi
+
+light.fibaro_system_fgd212_dimmer_2_level_5:
+  friendly_name: Hall taklampa 2
+sensor.fibaro_system_fgd212_dimmer_2_power_5:
+  friendly_name: Hall taklampa 2, effekt
+sensor.fibaro_system_fgd212_dimmer_2_energy_3:
+  friendly_name: Hall taklampa 2, energi
+
+sensor.fibaro_system_fgd212_dimmer_2_alarm_level_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_alarm_level_3:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_alarm_type_3:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_alarm_type_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_exporting_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_exporting_3:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_heat_3:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_heat_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_power_4:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_power_6:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_power_management_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_sourcenodeid_3:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_system_2:
+  hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_system_3:
   hidden: true

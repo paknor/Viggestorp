@@ -171,12 +171,18 @@
     - type: load_15m
     - type: since_last_boot
 
+
+################## Taklampa sovrum
 - platform: template
   sensors:
     bedroom_time:
       friendly_name: 'Klockslag'
       value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.bedroom_hour") | int, states("input_slider.bedroom_minutes") | int) }}'
+    bedroom_transition:
+      friendly_name: 'Transition'
+      value_template: '{{ states.input_slider.bedroom_transition.state | int  }} minuter'
 
+################## Kaffebryggare
 - platform: template
   sensors:
     coffee_time:
@@ -226,7 +232,7 @@
 
 - platform: mqtt
   state_topic: "zanzito/ke/battery_level"
-  name: "Samsung 6 Edge Batteri"
+  name: "Note 8 Batteri"
   unit_of_measurement: "%"
 
 ################## ESP_Easy2
@@ -264,10 +270,13 @@
       value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%H:%M:%S") }}'
     sun_set_time_left:
       friendly_name: 'Tid innan solen går ner'
-      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now())) | timestamp_custom("%H:%M:%S") }}'
+      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now()) - 3600) | timestamp_custom("%H:%M:%S") }}'
     winlights_time_left:
       friendly_name: 'Tid innan fönsterlampor tänds'
-      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now()) - 2100) | timestamp_custom("%H:%M:%S") }}'
+      value_template: '{{ (as_timestamp(states.sun.sun.attributes.next_setting) - as_timestamp(now()) - 2100 - 3600) | timestamp_custom("%H:%M:%S") }}'
+    time_now:
+      friendly_name: 'Klockslag'
+      value_template: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
 
 ################## LED-strip
 - platform: template

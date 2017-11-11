@@ -22,6 +22,12 @@ bedroom_view:
   entities:
     - group.bedroom
 
+hall_view:
+  name: Hall
+  view: yes
+  entities:
+    - group.hall
+
 misc_view:
   name: Diverse
   view: yes
@@ -115,6 +121,17 @@ bedroom:
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
     - switch.sanglampa
+
+hall:
+  name: Hall
+  control: hidden
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_3
+    - sensor.fibaro_system_fgd212_dimmer_2_power_3
+    - sensor.fibaro_system_fgd212_dimmer_2_energy_2
+    - light.fibaro_system_fgd212_dimmer_2_level_5
+    - sensor.fibaro_system_fgd212_dimmer_2_power_5
+    - sensor.fibaro_system_fgd212_dimmer_2_energy_3
 
 window_lights:
   name: Fönsterlampor
@@ -222,6 +239,7 @@ wakeup:
   entities:
     - automation.sovrum_taklampa_automatik
     - sensor.bedroom_time
+    - sensor.bedroom_transition
     - input_slider.bedroom_hour
     - input_slider.bedroom_minutes
     - input_slider.bedroom_brightness
@@ -302,6 +320,8 @@ ikea:
   control: hidden
   entities:
     - light.floalt_panel_ws_30x30
+    - automation.tand_lampa_vid_rorelse
+    - automation.slack_lampa_efter_rorelse
 
 led_strip:
   name: LEDstrip
@@ -311,6 +331,8 @@ led_strip:
     - scene.led_strip_red
     - scene.led_strip_green
     - scene.led_strip_blue
+    - scene.led_strip_yellow
+    - scene.led_strip_brown
     - scene.led_strip_white
     - sensor.slider_rgb_led_strip
     - sensor.rgb_led_strip_pv
