@@ -236,9 +236,9 @@
   unit_of_measurement: "%"
 
 ################## ESP_Easy2
-#- platform: mqtt
-#  state_topic: "ESP_Easy2/PIR/motion"
-#  name: "SN2 PIR"
+- platform: mqtt
+  state_topic: "ESP_Easy2/PIR/motion"
+  name: "PIR_hall"
 
 ################## Kalender
 - platform: template

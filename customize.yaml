@@ -158,3 +158,5 @@ sensor.fibaro_system_fgd212_dimmer_2_system_2:
   hidden: true
 sensor.fibaro_system_fgd212_dimmer_2_system_3:
   hidden: true
+sensor.fibaro_system_fgd212_dimmer_2_power_management_3:
+  hidden: true

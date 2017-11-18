@@ -143,6 +143,8 @@ camera:
 ifttt:
   key: !secret ifttt_secret
 
+python_script:
+
 #tradfri:
 #  host: 192.168.0.133
 #  api_key: !secret ikea_api
