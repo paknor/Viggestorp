@@ -161,8 +161,8 @@
     service: light.turn_on
     data_template:
       entity_id: light.fibaro_system_fgd212_dimmer_2_level
-      brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
-      transition: '{{ states.input_slider.bedroom_transition.state | int * 60 }}'
+      brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
+      transition: '{{ states.input_number.bedroom_transition.state | int * 60 }}'
 
 #### SONOFF
 - alias: Sonoff01 on
@@ -392,18 +392,18 @@
 - alias: LED-strip
   trigger:
 #    - platform: state
-#      entity_id: input_slider.led_strip_r
+#      entity_id: input_number.led_strip_r
 #    - platform: state
-#      entity_id: input_slider.led_strip_g
+#      entity_id: input_number.led_strip_g
 #    - platform: state
-#      entity_id: input_slider.led_strip_b
+#      entity_id: input_number.led_strip_b
     - platform: state
-      entity_id: input_slider.led_strip_bright
+      entity_id: input_number.led_strip_bright
   action:
     - service: light.turn_on
       data_template:
         entity_id: light.led_strip
-        brightness: '{{ states.input_slider.led_strip_bright.state | int }}'
+        brightness: '{{ states.input_number.led_strip_bright.state | int }}'
 #        rgb_color: '{{ states.sensor.slider_rgb_led_strip.state }}'
 
 - alias: LED-strip-ljus
@@ -411,9 +411,9 @@
     - platform: state
       entity_id: sensor.rgb_led_strip_pv
   action:
-    - service: input_slider.select_value
+    - service: input_number.select_value
       data_template:
-        entity_id: input_slider.led_strip_bright
+        entity_id: input_number.led_strip_bright
         value: '{{ states.light.led_strip.attributes.brightness }}'
 
 #### Stäng av uttag vid sängen kl 9 när jag inte är hemma

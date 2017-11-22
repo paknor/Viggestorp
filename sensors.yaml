@@ -177,17 +177,17 @@
   sensors:
     bedroom_time:
       friendly_name: 'Klockslag'
-      value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.bedroom_hour") | int, states("input_slider.bedroom_minutes") | int) }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.bedroom_hour") | int, states("input_number.bedroom_minutes") | int) }}'
     bedroom_transition:
       friendly_name: 'Transition'
-      value_template: '{{ states.input_slider.bedroom_transition.state | int  }} minuter'
+      value_template: '{{ states.input_number.bedroom_transition.state | int  }} minuter'
 
 ################## Kaffebryggare
 - platform: template
   sensors:
     coffee_time:
       friendly_name: 'Klockslag'
-      value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.coffee_hour") | int, states("input_slider.coffee_minutes") | int) }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.coffee_hour") | int, states("input_number.coffee_minutes") | int) }}'
 
 ################## Multisensor SN1
 - platform: mqtt
@@ -284,9 +284,9 @@
     slider_rgb_led_strip:
       friendly_name: 'RGB LED-strip'
       value_template: >- 
-        {% set r = states.input_slider.led_strip_r.state | int %}
-        {% set g = states.input_slider.led_strip_g.state | int %}
-        {% set b = states.input_slider.led_strip_b.state | int %}
+        {% set r = states.input_number.led_strip_r.state | int %}
+        {% set g = states.input_number.led_strip_g.state | int %}
+        {% set b = states.input_number.led_strip_b.state | int %}
         ({{ r | int }}, {{ g | int }}, {{ b | int }})
     rgb_led_strip_pv:
       friendly_name: 'RGB'

@@ -226,12 +226,12 @@ raspberry:
     - sensor.average_load_1m
     - sensor.average_load_5m
     - sensor.average_load_15m
-    - sensor.cpu_use
+    - sensor.cpu_used
     - sensor.cputemperatur_pi
     - sensor.database
-    - sensor.disk_use_
-    - sensor.ram_free
-    - sensor.ram_use
+    - sensor.disk_used_
+    - sensor.ram_available
+    - sensor.ram_used
 
 wakeup:
   name: Taklampa sovrum
@@ -240,10 +240,10 @@ wakeup:
     - automation.sovrum_taklampa_automatik
     - sensor.bedroom_time
     - sensor.bedroom_transition
-    - input_slider.bedroom_hour
-    - input_slider.bedroom_minutes
-    - input_slider.bedroom_brightness
-    - input_slider.bedroom_transition
+    - input_number.bedroom_hour
+    - input_number.bedroom_minutes
+    - input_number.bedroom_brightness
+    - input_number.bedroom_transition
 
 coffee:
   name: Kaffebryggare
@@ -251,8 +251,8 @@ coffee:
   entities:
     - automation.starta_kaffebryggaren
     - sensor.coffee_time
-    - input_slider.coffee_hour
-    - input_slider.coffee_minutes
+    - input_number.coffee_hour
+    - input_number.coffee_minutes
 
 remote433:
   name: Fjärr fönsterlampor
@@ -336,7 +336,7 @@ led_strip:
     - scene.led_strip_white
     - sensor.slider_rgb_led_strip
     - sensor.rgb_led_strip_pv
-    - input_slider.led_strip_bright
-    - input_slider.led_strip_r
-    - input_slider.led_strip_g
-    - input_slider.led_strip_b
+    - input_number.led_strip_bright
+    - input_number.led_strip_r
+    - input_number.led_strip_g
+    - input_number.led_strip_b
