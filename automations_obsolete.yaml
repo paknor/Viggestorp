@@ -1,0 +1,202 @@
+#### SONOFF
+- alias: Sonoff01 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_5
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.skarvsladd_1
+- alias: Sonoff01 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_5
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.skarvsladd_1
+
+- alias: Sonoff02 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_6
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.skarvsladd_2
+- alias: Sonoff02 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_6
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.skarvsladd_2
+
+- alias: Sonoff03 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_4
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.win_kitchen1
+- alias: Sonoff03 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_4
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.win_kitchen1
+
+- alias: Sonoff04 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_4
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.win_kitchen2
+- alias: Sonoff04 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_4
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.win_kitchen2
+
+- alias: Sonoff05 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_3
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.win_bedroom
+- alias: Sonoff05 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_3
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.win_bedroom
+
+- alias: Sonoff06 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_1
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.win_livingroom_1
+- alias: Sonoff06 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_1
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.win_livingroom_1
+
+- alias: Sonoff07 on
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_2
+    to: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.win_livingroom_2
+- alias: Sonoff07 off
+  trigger:
+    platform: state
+    entity_id: light.newkaku_00d8893a_2
+    to: 'off'
+  action:
+    service: switch.turn_off
+    entity_id: switch.win_livingroom_2
+
+#### UPPDATERA FJÄRRKONTROLL
+#### KNAPP 1 Vardagsrum 1
+- alias: Knapp 1 ON
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff06/POWER
+    payload: 'ON'
+  action:
+    service: light.turn_on
+    entity_id: light.newkaku_00d8893a_1
+
+- alias: Knapp 1 OFF
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff06/POWER
+    payload: 'OFF'
+  action:
+    service: light.turn_off
+    entity_id: light.newkaku_00d8893a_1
+
+#### KNAPP 2 Vardagsrum 2
+- alias: Knapp 2 ON
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff07/POWER
+    payload: 'ON'
+  action:
+    service: light.turn_on
+    entity_id: light.newkaku_00d8893a_2
+
+- alias: Knapp 2 OFF
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff07/POWER
+    payload: 'OFF'
+  action:
+    service: light.turn_off
+    entity_id: light.newkaku_00d8893a_2
+
+#### KNAPP 3 Sovrum
+- alias: Knapp 3 ON
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff05/POWER
+    payload: 'ON'
+  action:
+    service: light.turn_on
+    entity_id: light.newkaku_00d8893a_3
+
+- alias: Knapp 3 OFF
+  trigger:
+    platform: mqtt
+    topic: stat/sonoff05/POWER
+    payload: 'OFF'
+  action:
+    service: light.turn_off
+    entity_id: light.newkaku_00d8893a_3
+
+#### KNAPP 4 Kök
+- alias: Knapp 4 ON
+  trigger:
+    - platform: mqtt
+      topic: stat/sonoff03/POWER
+      payload: 'ON'
+    - platform: mqtt
+      topic: stat/sonoff04/POWER
+      payload: 'ON'
+  action:
+    service: light.turn_on
+    entity_id: light.newkaku_00d8893a_4
+
+- alias: Knapp 4 OFF
+  trigger:
+    - platform: mqtt
+      topic: stat/sonoff03/POWER
+      payload: 'OFF'
+    - platform: mqtt
+      topic: stat/sonoff04/POWER
+      payload: 'OFF'
+  action:
+    service: light.turn_off
+    entity_id: light.newkaku_00d8893a_4

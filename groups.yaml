@@ -46,7 +46,7 @@ window_light_view:
   icon: mdi:lamp
   entities:
     - group.window_lights
-    - group.remote433
+#    - group.remote433
 
 temperatures_view:
   name: Temperaturer
@@ -254,14 +254,14 @@ coffee:
     - input_number.coffee_hour
     - input_number.coffee_minutes
 
-remote433:
-  name: Fjärr fönsterlampor
-  control: hidden
-  entities:
-    - light.newkaku_00d8893a_1
-    - light.newkaku_00d8893a_2
-    - light.newkaku_00d8893a_3
-    - light.newkaku_00d8893a_4
+#remote433:
+#  name: Fjärr fönsterlampor
+#  control: hidden
+#  entities:
+#    - light.newkaku_00d8893a_1
+#    - light.newkaku_00d8893a_2
+#    - light.newkaku_00d8893a_3
+#    - light.newkaku_00d8893a_4
 
 sonoff:
   name: Sonoff
