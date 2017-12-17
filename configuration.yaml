@@ -24,6 +24,9 @@ frontend:
 # Enables configuration UI
 config:
 
+# show map
+map:
+
 http:
   api_password: !secret http_password
   ssl_certificate: /etc/letsencrypt/live/pi.einarsson.se/fullchain.pem
@@ -34,7 +37,7 @@ http:
 updater:
 
 # Discover some devices automatically
-discovery:
+# discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -147,9 +150,8 @@ ifttt:
 
 python_script:
 
-#tradfri:
-#  host: 192.168.0.221
-#  api_key: !secret ikea_api
+tradfri:
+  host: 192.168.0.221
 
 #panel_iframe:
 #  grafana:

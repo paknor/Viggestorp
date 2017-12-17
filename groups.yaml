@@ -267,7 +267,7 @@ sonoff:
   name: Sonoff
   control: hidden
   entities:
-    - switch.skarvsladd_1
+    - switch.julgran
     - switch.sanglampa
     - switch.win_kitchen1
     - switch.win_kitchen2

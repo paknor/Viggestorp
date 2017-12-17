@@ -1,5 +1,5 @@
 ﻿- platform: mqtt
-  name: "Skarvsladd 1"
+  name: "Julgran"
   command_topic: "cmnd/sonoff01/power"
   state_topic: "stat/sonoff01/POWER"
   qos: 1
