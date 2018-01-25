@@ -241,10 +241,15 @@
   name: "Note 8 Batteri"
   unit_of_measurement: "%"
 
-################## ESP_Easy2
+################## ESP_Easy_Hall
 - platform: mqtt
-  state_topic: "ESP_Easy2/PIR/motion"
-  name: "PIR_hall"
+  state_topic: "ESP_Easy_Hall/PIR/motion"
+  name: "PIR hall"
+
+- platform: mqtt
+  state_topic: "ESP_Easy_Hall/sensor/light"
+  name: "Ljus hall"
+  unit_of_measurement: "%"
 
 ################## Kalender
 - platform: template
@@ -283,6 +288,10 @@
     time_now:
       friendly_name: 'Klockslag'
       value_template: '{{ as_timestamp(now()) | timestamp_custom("%H:%M") }}'
+    elevation:
+      friendly_name: 'Solhöjd'
+      value_template: '{{ states.sun.sun.attributes.elevation }}'
+      unit_of_measurement: "°"
 
 ################## LED-strip
 - platform: template
@@ -297,3 +306,134 @@
     rgb_led_strip_pv:
       friendly_name: 'RGB'
       value_template: '{{ states.light.led_strip.attributes.rgb_color }}'
+
+################## SMHI
+# http://opendata.smhi.se/apidocs/metfcst/parameters.html
+- platform: mqtt
+  state_topic: "smhi/msl"
+  name: "SMHI Air pressure"
+  unit_of_measurement: "hPa"
+
+- platform: mqtt
+  state_topic: "smhi/t"
+  name: "SMHI Air temperature"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  state_topic: "smhi/vis"
+  name: "SMHI Horisontal visibility"
+  unit_of_measurement: "km"
+
+- platform: mqtt
+  state_topic: "smhi/wd"
+  name: "SMHI Wind direction"
+  unit_of_measurement: "°"
+
+- platform: mqtt
+  state_topic: "smhi/ws"
+  name: "SMHI Wind speed"
+  unit_of_measurement: "m/s"
+  
+- platform: mqtt
+  state_topic: "smhi/r"
+  name: "SMHI Relative humidity"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  state_topic: "smhi/tstm"
+  name: "SMHI Thunder propability"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  state_topic: "smhi/tcc_mean"
+  name: "SMHI Mean value of total cloud cover"
+  unit_of_measurement: "octas"
+
+- platform: mqtt
+  state_topic: "smhi/lcc_mean"
+  name: "SMHI Mean value of low level cloud cover"
+  unit_of_measurement: "octas"
+
+- platform: mqtt
+  state_topic: "smhi/mcc_mean"
+  name: "SMHI Mean value of medium level cloud cover"
+  unit_of_measurement: "octas"
+
+- platform: mqtt
+  state_topic: "smhi/hcc_mean"
+  name: "SMHI Mean value of high level cloud cover"
+  unit_of_measurement: "octas"
+
+- platform: mqtt
+  state_topic: "smhi/gust"
+  name: "SMHI Vind gust speed"
+  unit_of_measurement: "m/s"
+
+- platform: mqtt
+  state_topic: "smhi/pmin"
+  name: "SMHI Minimum precipitation intensity"
+  unit_of_measurement: "mm/h"
+
+- platform: mqtt
+  state_topic: "smhi/pmax"
+  name: "SMHI Maximum precipitation intensity"
+  unit_of_measurement: "mm/h"
+
+- platform: mqtt
+  state_topic: "smhi/spp"
+  name: "SMHI Percent of precipitation in frozen form"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  state_topic: "smhi/pcat"
+  name: "SMHI Precipitation category"
+  unit_of_measurement: "category"
+
+- platform: mqtt
+  state_topic: "smhi/pmean"
+  name: "SMHI Mean precipitation intensity"
+  unit_of_measurement: "mm/h"
+
+- platform: mqtt
+  state_topic: "smhi/pmedian"
+  name: "SMHI Median precipitation intensity"
+  unit_of_measurement: "mm/h"
+
+- platform: mqtt
+  state_topic: "smhi/Wsymb2"
+  name: "SMHI Weather symbol"
+  unit_of_measurement: "code"
+
+- platform: template
+  sensors:
+    smhi_weathertype:
+      friendly_name: "SMHI Weathertype"
+      value_template: >-
+        {% if states.sensor.smhi_weather_symbol.state | int == 1 %} Clear sky
+        {% elif states.sensor.smhi_weather_symbol.state | int == 2 %} Nearly clear sky
+        {% elif states.sensor.smhi_weather_symbol.state | int == 3 %} Variable cloudiness
+        {% elif states.sensor.smhi_weather_symbol.state | int == 4 %} Halfclear sky
+        {% elif states.sensor.smhi_weather_symbol.state | int == 5 %} Cloudy sky
+        {% elif states.sensor.smhi_weather_symbol.state | int == 6 %} Overcast
+        {% elif states.sensor.smhi_weather_symbol.state | int == 7 %} Fog
+        {% elif states.sensor.smhi_weather_symbol.state | int == 8 %} Light rain showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 9 %} Moderate rain showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 10 %} Heavy rain showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 11 %} Thunderstorm
+        {% elif states.sensor.smhi_weather_symbol.state | int == 12 %} Light sleet showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 13 %} Moderate sleet showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 14 %} Heavy sleet showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 15 %} Light snow showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 16 %} Moderate snow showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 17 %} Heavy snow showers
+        {% elif states.sensor.smhi_weather_symbol.state | int == 18 %} Light rain
+        {% elif states.sensor.smhi_weather_symbol.state | int == 19 %} Moderate rain
+        {% elif states.sensor.smhi_weather_symbol.state | int == 20 %} Heavy rain
+        {% elif states.sensor.smhi_weather_symbol.state | int == 21 %} Thunder
+        {% elif states.sensor.smhi_weather_symbol.state | int == 22 %} Light sleet
+        {% elif states.sensor.smhi_weather_symbol.state | int == 23 %} Moderate sleet
+        {% elif states.sensor.smhi_weather_symbol.state | int == 24 %} Heavy sleet
+        {% elif states.sensor.smhi_weather_symbol.state | int == 25 %} Light snowfall
+        {% elif states.sensor.smhi_weather_symbol.state | int == 26 %} Moderate snowfall
+        {% elif states.sensor.smhi_weather_symbol.state | int == 27 %} Heavy snowfall
+        {%- endif -%}

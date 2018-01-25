@@ -62,6 +62,14 @@ weather_view:
   entities:
     - group.weather
     - group.yr
+    - group.astro
+
+smhi_view:
+  name: SMHI
+  view: yes
+  icon: mdi:weather-sunny
+  entities:
+    - group.smhi
 
 computer_view:
   name: Datorer
@@ -132,6 +140,8 @@ hall:
     - light.fibaro_system_fgd212_dimmer_2_level_5
     - sensor.fibaro_system_fgd212_dimmer_2_power_5
     - sensor.fibaro_system_fgd212_dimmer_2_energy_3
+    - sensor.ljus_hall
+    - sensor.pir_hall
 
 window_lights:
   name: Fönsterlampor
@@ -160,6 +170,8 @@ temperatures:
     - sensor.upm_esic_0002_temp
     - sensor.netatmo_vardagsrum_temperature
     - sensor.netatmo_ute_soder_temperature
+    - sensor.smhi_air_temperature
+    - sensor.yr_temperature
     - sensor.cputemperature
     - sensor.cputemperatur_pi
     - sensor.temperatur_kallare
@@ -183,9 +195,6 @@ yr:
   name: Yr
   control: hidden
   entities:
-    - sun.sun
-    - sensor.moon
-    - sensor.season
     - sensor.yr_symbol
     - sensor.yr_precipitation
     - sensor.yr_cloudiness
@@ -199,6 +208,15 @@ yr:
     - sensor.yr_pressure
     - sensor.yr_wind_direction
     - sensor.yr_wind_speed
+
+astro:
+  name: Astronomisk
+  control: hidden
+  entities:
+    - sun.sun
+    - sensor.elevation
+    - sensor.moon
+    - sensor.season
 
 nas:
   name: NAS
@@ -340,3 +358,28 @@ led_strip:
     - input_number.led_strip_r
     - input_number.led_strip_g
     - input_number.led_strip_b
+
+smhi:
+  name: SMHI
+  control: hidden
+  entities:
+    - sensor.smhi_weather_symbol
+    - sensor.smhi_weathertype
+    - sensor.smhi_air_pressure
+    - sensor.smhi_air_temperature
+    - sensor.smhi_horisontal_visibility
+    - sensor.smhi_mean_value_of_high_level_cloud_cover
+    - sensor.smhi_mean_value_of_low_level_cloud_cover
+    - sensor.smhi_mean_value_of_medium_level_cloud_cover
+    - sensor.smhi_mean_value_of_total_cloud_cover
+    - sensor.smhi_maximum_precipitation_intensity
+    - sensor.smhi_mean_precipitation_intensity
+    - sensor.smhi_median_precipitation_intensity
+    - sensor.smhi_minimum_precipitation_intensity
+    - sensor.smhi_percent_of_precipitation_in_frozen_form
+    - sensor.smhi_precipitation_category
+    - sensor.smhi_relative_humidity
+    - sensor.smhi_thunder_propability
+    - sensor.smhi_vind_gust_speed
+    - sensor.smhi_wind_direction
+    - sensor.smhi_wind_speed

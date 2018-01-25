@@ -170,8 +170,11 @@
     entity_id: sensor.sn2_pir
     to: '1'
   action:
-    service: light.turn_on
-    entity_id: light.floalt_panel_ws_30x30
+    service: scene.turn_on
+    entity_id: scene.led_strip_brown
+    #service: light.turn_on
+    #entity_id: light.floalt_panel_ws_30x30
+    
 
 - alias: Släck lampa efter rörelse
   trigger:
@@ -182,7 +185,8 @@
       minutes: 5
   action:
     service: light.turn_off
-    entity_id: light.floalt_panel_ws_30x30
+    #entity_id: light.floalt_panel_ws_30x30
+    entity_id: light.led_strip
 
 #### LED-strip
 - alias: LED-strip

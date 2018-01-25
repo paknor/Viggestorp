@@ -137,6 +137,7 @@ influxdb:
       - sensor.ljus01
       - sensor.yr_cloudiness
       - sensor.note_8_batteri
+      - sensor.elevation
 
 # Shows device_tracker.ke on a map.
 camera:
