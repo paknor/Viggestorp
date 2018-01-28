@@ -151,8 +151,8 @@ window_lights:
     - scene.fonsterlampor_av
     - sensor.sun_set
     - sensor.sun_set_time_left
-    - sensor.winlights
-    - sensor.winlights_time_left
+    - sensor.elevation
+    - sensor.degrees_left
     - switch.win_livingroom_1
     - switch.win_livingroom_2
     - switch.win_kitchen1
@@ -380,6 +380,6 @@ smhi:
     - sensor.smhi_precipitation_category
     - sensor.smhi_relative_humidity
     - sensor.smhi_thunder_propability
-    - sensor.smhi_vind_gust_speed
+    - sensor.smhi_wind_gust_speed
     - sensor.smhi_wind_direction
     - sensor.smhi_wind_speed

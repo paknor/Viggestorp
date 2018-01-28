@@ -292,6 +292,11 @@
       friendly_name: 'Solhöjd'
       value_template: '{{ states.sun.sun.attributes.elevation }}'
       unit_of_measurement: "°"
+    degrees_left:
+      friendly_name: 'Grader kvar'
+      value_template: '{{ states.sun.sun.attributes.elevation - 3.5}}'
+      unit_of_measurement: "°"
+
 
 ################## LED-strip
 - platform: template
@@ -366,7 +371,7 @@
 
 - platform: mqtt
   state_topic: "smhi/gust"
-  name: "SMHI Vind gust speed"
+  name: "SMHI Wind gust speed"
   unit_of_measurement: "m/s"
 
 - platform: mqtt
