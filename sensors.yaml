@@ -251,6 +251,16 @@
   name: "Ljus hall"
   unit_of_measurement: "%"
 
+- platform: mqtt
+  state_topic: "ESP_Easy_Hall/DHT22/Temperature"
+  name: "Temperatur hall"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  state_topic: "ESP_Easy_Hall/DHT22/Humidity"
+  name: "Luftfuktighet hall"
+  unit_of_measurement: "rh"
+
 ################## Kalender
 - platform: template
   sensors:

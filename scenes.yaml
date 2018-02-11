@@ -24,6 +24,13 @@
     switch.win_kitchen2:
       state: off
 
+- name: Godnatt
+  entities:
+    switch.win_bedroom:
+      state: off
+    switch.sanglampa:
+      state: on
+
 - name: LED_red
   entities:
     light.sn1_led:

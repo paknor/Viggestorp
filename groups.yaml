@@ -142,6 +142,8 @@ hall:
     - sensor.fibaro_system_fgd212_dimmer_2_energy_3
     - sensor.ljus_hall
     - sensor.pir_hall
+    - sensor.temperatur_hall
+    - sensor.luftfuktighet_hall
 
 window_lights:
   name: Fönsterlampor
@@ -242,15 +244,15 @@ raspberry:
   entities:
     - sensor.since_last_boot
     - sensor.hass_uptime
-    - sensor.average_load_1m
-    - sensor.average_load_5m
-    - sensor.average_load_15m
-    - sensor.cpu_used
+    - sensor.load_1m
+    - sensor.load_5m
+    - sensor.load_15m
+    - sensor.processor_use
     - sensor.cputemperatur_pi
     - sensor.database
-    - sensor.disk_used_
-    - sensor.ram_available
-    - sensor.ram_used
+    - sensor.disk_use_percent_
+    - sensor.memory_free
+    - sensor.memory_use_percent
 
 wakeup:
   name: Taklampa sovrum
