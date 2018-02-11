@@ -153,6 +153,7 @@ window_lights:
     - sensor.sun_set_time_left
     - sensor.elevation
     - sensor.degrees_left
+    - binary_sensor.switch_158d00019ca56e
     - switch.win_livingroom_1
     - switch.win_livingroom_2
     - switch.win_kitchen1

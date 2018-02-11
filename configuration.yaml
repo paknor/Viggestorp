@@ -89,7 +89,7 @@ mqtt:
 
 media_player:
   - platform: samsungtv
-    host: 192.168.0.112
+    host: 192.168.0.116
     mac: 48:44:f7:55:44:f2
     name: TV vardagsrum
     scan_interval: 15
@@ -138,6 +138,7 @@ influxdb:
       - sensor.yr_cloudiness
       - sensor.note_8_batteri
       - sensor.elevation
+      - sensor.temperature_158d0001c2a77b
 
 # Shows device_tracker.ke on a map.
 camera:
@@ -153,6 +154,11 @@ python_script:
 
 tradfri:
   host: 192.168.0.221
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_password
 
 #panel_iframe:
 #  grafana:

@@ -160,3 +160,7 @@ sensor.fibaro_system_fgd212_dimmer_2_system_3:
   hidden: true
 sensor.fibaro_system_fgd212_dimmer_2_power_management_3:
   hidden: true
+
+#### Xiaomi
+binary_sensor.switch_158d00019ca56e:
+  friendly_name: Knapp fönsterlampor

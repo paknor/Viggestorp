@@ -242,3 +242,26 @@
   action: 
     service: switch.turn_off
     entity_id: switch.sanglampa
+
+#### Xiaomi knapp 1
+- alias: Fönsterlampor av, Single click
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00019ca56e
+      click_type: single
+  action:
+    - service: scene.turn_on
+      entity_id: scene.fonsterlampor_av
+
+- alias: Fönsterlampor på, Double click
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00019ca56e
+      click_type: double
+  action:
+    - service: scene.turn_on
+      entity_id: scene.fonsterlampor_pa
