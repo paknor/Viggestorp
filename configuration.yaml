@@ -126,13 +126,13 @@ influxdb:
       - sensor.tunex_0701_temp
       - sensor.database
       - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
-      - sensor.netatmo_ute_soder_humidity
-      - sensor.netatmo_ute_soder_temperature
-      - sensor.netatmo_vardagsrum_co2
-      - sensor.netatmo_vardagsrum_humidity
-      - sensor.netatmo_vardagsrum_noise
-      - sensor.netatmo_vardagsrum_pressure
-      - sensor.netatmo_vardagsrum_temperature
+      - sensor.netatmo_ute_soder_humidity_2
+      - sensor.netatmo_ute_soder_temperature_2
+      - sensor.netatmo_vardagsrum_co2_2
+      - sensor.netatmo_vardagsrum_humidity_2
+      - sensor.netatmo_vardagsrum_noise_2
+      - sensor.netatmo_vardagsrum_pressure_2
+      - sensor.netatmo_vardagsrum_temperature_2
       - sensor.upm_esic_0002_temp
       - sensor.ljus01
       - sensor.yr_cloudiness

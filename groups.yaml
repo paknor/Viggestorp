@@ -112,11 +112,11 @@ livingroom:
     - media_player.slamsug
     - switch.win_livingroom_1
     - switch.win_livingroom_2
-    - sensor.netatmo_vardagsrum_co2
-    - sensor.netatmo_vardagsrum_humidity
-    - sensor.netatmo_vardagsrum_noise
-    - sensor.netatmo_vardagsrum_pressure
-    - sensor.netatmo_vardagsrum_temperature
+    - sensor.netatmo_vardagsrum_co2_2
+    - sensor.netatmo_vardagsrum_humidity_2
+    - sensor.netatmo_vardagsrum_noise_2
+    - sensor.netatmo_vardagsrum_pressure_2
+    - sensor.netatmo_vardagsrum_temperature_2
 
 bedroom:
   name: Sovrum
@@ -171,8 +171,8 @@ temperatures:
     - sensor.tunex_8801_temp
     - sensor.upm_esic_0001_temp
     - sensor.upm_esic_0002_temp
-    - sensor.netatmo_vardagsrum_temperature
-    - sensor.netatmo_ute_soder_temperature
+    - sensor.netatmo_vardagsrum_temperature_2
+    - sensor.netatmo_ute_soder_temperature_2
     - sensor.smhi_air_temperature
     - sensor.yr_temperature
     - sensor.cputemperature
@@ -183,16 +183,16 @@ weather:
   name: Väderstation
   control: hidden
   entities:
-    - sensor.netatmo_ute_soder_humidity
-    - sensor.netatmo_ute_soder_temperature
-    - sensor.netatmo_vardagsrum_co2
-    - sensor.netatmo_vardagsrum_humidity
-    - sensor.netatmo_vardagsrum_noise
-    - sensor.netatmo_vardagsrum_pressure
-    - sensor.netatmo_vardagsrum_temperature
-    - sensor.netatmo_ute_soder_battery
-    - sensor.netatmo_ute_soder_radio
-    - sensor.netatmo_vardagsrum_wifi
+    - sensor.netatmo_ute_soder_humidity_2
+    - sensor.netatmo_ute_soder_temperature_2
+    - sensor.netatmo_vardagsrum_co2_2
+    - sensor.netatmo_vardagsrum_humidity_2
+    - sensor.netatmo_vardagsrum_noise_2
+    - sensor.netatmo_vardagsrum_pressure_2
+    - sensor.netatmo_vardagsrum_temperature_2
+    - sensor.netatmo_ute_soder_battery_2
+    - sensor.netatmo_ute_soder_radio_2
+    - sensor.netatmo_vardagsrum_wifi_2
 
 yr:
   name: Yr
