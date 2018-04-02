@@ -10,11 +10,11 @@ sensor.tunex_8801_bat:
   hidden: true
 sensor.tunex_8801_hum:
   hidden: true
-sensor.tunex_0701_temp:
+sensor.tunex_1401_temp:
   friendly_name: "Frysskåp"
-sensor.tunex_0701_bat:
+sensor.tunex_1401_bat:
   hidden: true
-sensor.tunex_0701_hum:
+sensor.tunex_1401_hum:
   hidden: true
 sensor.upm_esic_0001_temp:
   friendly_name: "Förråd"

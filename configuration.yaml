@@ -93,6 +93,7 @@ media_player:
     mac: 48:44:f7:55:44:f2
     name: TV vardagsrum
     scan_interval: 15
+  - platform: sonos
 
 #  - platform: spotify
 #    client_id: !secret spotify_client
@@ -123,7 +124,7 @@ influxdb:
   include:
     entities:
       - sensor.tunex_5401_temp
-      - sensor.tunex_0701_temp
+      - sensor.tunex_1401_temp
       - sensor.database
       - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
       - sensor.netatmo_ute_soder_humidity_2
@@ -135,11 +136,13 @@ influxdb:
       - sensor.netatmo_vardagsrum_temperature_2
       - sensor.upm_esic_0002_temp
       - sensor.ljus01
+      - sensor.filtrerat_ljus_ute
       - sensor.yr_cloudiness
       - sensor.note_8_batteri
       - sensor.elevation
       - sensor.temperature_158d0001c2a77b
       - proximity.home
+
 
 # Shows device_tracker.ke on a map.
 camera:

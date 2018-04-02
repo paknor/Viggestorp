@@ -452,3 +452,19 @@
         {% elif states.sensor.smhi_weather_symbol.state | int == 26 %} Moderate snowfall
         {% elif states.sensor.smhi_weather_symbol.state | int == 27 %} Heavy snowfall
         {%- endif -%}
+
+################## Filter
+- platform: filter
+  name: "Filtrerat ljus ute"
+  entity_id: sensor.ljus01
+  filters:
+    - filter: lowpass
+      time_constant: 5
+      precision: 0
+
+################## Speedtest
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload

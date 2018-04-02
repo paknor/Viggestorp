@@ -78,6 +78,7 @@ computer_view:
   entities:
     - group.nas
     - group.raspberry
+    - group.speedtest
 
 settings_view:
   name: Inställningar
@@ -93,7 +94,7 @@ kitchen:
   control: hidden
   entities:
     - sensor.tunex_5401_temp
-    - sensor.tunex_0701_temp
+    - sensor.tunex_1401_temp
     - switch.win_kitchen1
     - switch.win_kitchen2
     - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
@@ -167,7 +168,7 @@ temperatures:
   control: hidden
   entities:
     - sensor.tunex_5401_temp
-    - sensor.tunex_0701_temp
+    - sensor.tunex_1401_temp
     - sensor.tunex_8801_temp
     - sensor.upm_esic_0001_temp
     - sensor.upm_esic_0002_temp
@@ -308,6 +309,7 @@ multisensor1:
 #    - sensor.sn1_temperature
 #    - sensor.sn1_humidity
     - sensor.ljus01
+    - sensor.filtrerat_ljus_ute
     - sensor.is_dark
 #    - sensor.sn1_pir
 
@@ -386,3 +388,11 @@ smhi:
     - sensor.smhi_wind_gust_speed
     - sensor.smhi_wind_direction
     - sensor.smhi_wind_speed
+
+speedtest:
+  name: Speedtest
+  control: hidden
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
