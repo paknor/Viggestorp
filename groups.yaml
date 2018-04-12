@@ -93,7 +93,8 @@ kitchen:
   name: Kök
   control: hidden
   entities:
-    - sensor.tunex_5401_temp
+    - sensor.tunex_6601_temp
+    - sensor.temperature_158d0001c2a77b
     - sensor.tunex_1401_temp
     - switch.win_kitchen1
     - switch.win_kitchen2
@@ -113,6 +114,7 @@ livingroom:
     - media_player.slamsug
     - switch.win_livingroom_1
     - switch.win_livingroom_2
+    - binary_sensor.door_window_sensor_158d0001b8623f
     - sensor.netatmo_vardagsrum_co2_2
     - sensor.netatmo_vardagsrum_humidity_2
     - sensor.netatmo_vardagsrum_noise_2
@@ -167,7 +169,7 @@ temperatures:
   name: Temperaturer
   control: hidden
   entities:
-    - sensor.tunex_5401_temp
+    - sensor.tunex_6601_temp
     - sensor.tunex_1401_temp
     - sensor.tunex_8801_temp
     - sensor.upm_esic_0001_temp
@@ -194,6 +196,15 @@ weather:
     - sensor.netatmo_ute_soder_battery_2
     - sensor.netatmo_ute_soder_radio_2
     - sensor.netatmo_vardagsrum_wifi_2
+    - sensor.netatmo_regn_rain
+    - sensor.netatmo_regn_battery
+    - sensor.netatmo_regn_radio
+    - sensor.netatmo_vind_angle
+    - sensor.netatmo_vind_battery
+    - sensor.netatmo_vind_gust_angle
+    - sensor.netatmo_vind_gust_strength
+    - sensor.netatmo_vind_radio
+    - sensor.netatmo_vind_strength
 
 yr:
   name: Yr

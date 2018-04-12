@@ -1,8 +1,8 @@
-﻿sensor.tunex_5401_temp:
+﻿sensor.tunex_6601_temp:
   friendly_name: "Kylskåp"
-sensor.tunex_5401_bat:
+sensor.tunex_6601_bat:
   hidden: true
-sensor.tunex_5401_hum:
+sensor.tunex_6601_hum:
   hidden: true
 sensor.tunex_8801_temp:
   friendly_name: Ute norr
@@ -164,3 +164,7 @@ sensor.fibaro_system_fgd212_dimmer_2_power_management_3:
 #### Xiaomi
 binary_sensor.switch_158d00019ca56e:
   friendly_name: Knapp fönsterlampor
+binary_sensor.door_window_sensor_158d0001b8623f:
+  friendly_name: Balkongdörr
+sensor.temperature_158d0001c2a77b:
+  friendly_name: Kylskåp (extra)

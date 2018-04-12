@@ -276,3 +276,17 @@
   action:
     - service: scene.turn_on
       entity_id: scene.godnatt
+
+#### Xiaomi Balkongdörr öppnas
+- alias: Balkongdörr öppnas
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b8623f
+      from: 'off'
+      to: 'on'
+  action:
+    - service: xiaomi_aqara.play_ringtone
+      data_template:
+        gw_mac: !secret xiaomi_mac
+        ringtone_id: 10
+        ringtone_vol: 15
