@@ -258,3 +258,43 @@ media_player.kok:
   name:
   platform: sonos
   unique_id: RINCON_949F3EFAABE001400
+light.tradfri_bulb_gu10_w_400lm:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65544
+light.tradfri_bulb_gu10_w_400lm_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65546
+light.tradfri_bulb_gu10_w_400lm_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65545
+light.floalt_panel_ws_30x30:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65537
+light.tradfri_group_4:
+  name:
+  platform: tradfri
+  unique_id: group-7e1775520440010b-173923
+light.tradfri_group:
+  name:
+  platform: tradfri
+  unique_id: group-7e1775520440010b-173920
+light.lampa_3:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65550
+light.lampa_1:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65548
+light.lampa_2:
+  name:
+  platform: tradfri
+  unique_id: light-7e1775520440010b-65549
+light.hall_kallare:
+  name:
+  platform: tradfri
+  unique_id: group-7e1775520440010b-173925

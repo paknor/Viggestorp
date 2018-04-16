@@ -96,6 +96,7 @@ kitchen:
     - sensor.tunex_6601_temp
     - sensor.temperature_158d0001c2a77b
     - sensor.tunex_1401_temp
+    - binary_sensor.water_leak_sensor_158d0001bc1fab
     - switch.win_kitchen1
     - switch.win_kitchen2
     - switch.fibaro_system_fgwpef_wall_plug_gen5_switch

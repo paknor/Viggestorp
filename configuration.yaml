@@ -183,3 +183,4 @@ scene: !include scenes.yaml
 input_number: !include sliders.yaml
 # input_boolean: !include input_boolean.yaml
 binary_sensor: !include binary_sensor.yaml
+script: !include script.yaml

@@ -277,6 +277,27 @@
     - service: scene.turn_on
       entity_id: scene.godnatt
 
+#### Xiaomi knapp 2
+- alias: Dörrklocka, Single click
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d00019c8c02
+      click_type: single
+  action:
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        gw_mac: !secret xiaomi_mac
+#        ringtone_id: 10
+#        ringtone_vol: 70
+    - service: script.turn_on
+      entity_id: script.say
+      data:
+        variables:
+          where: 'media_player.kok'
+          what: 'Nån ringer på dörren'
+
 #### Xiaomi Balkongdörr öppnas
 - alias: Balkongdörr öppnas
   trigger:
@@ -285,8 +306,39 @@
       from: 'off'
       to: 'on'
   action:
-    - service: xiaomi_aqara.play_ringtone
-      data_template:
-        gw_mac: !secret xiaomi_mac
-        ringtone_id: 10
-        ringtone_vol: 15
+    - service: notify.pushbullet
+      data:
+        message: 'Balkongdörr öppnad'
+        title: 'Home Assistant'
+#    - service: xiaomi_aqara.play_ringtone
+#      data_template:
+#        gw_mac: !secret xiaomi_mac
+#        ringtone_id: 10
+#        ringtone_vol: 15
+
+#### Xiaomi Balkongdörr stängs
+- alias: Balkongdörr stängs
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0001b8623f
+      from: 'on'
+      to: 'off'
+  action:
+    - service: notify.pushbullet
+      data:
+        message: 'Balkongdörr stängd'
+        title: 'Home Assistant'
+
+#### Xiaomi Diskmaskin översvämmning
+- alias: Diskmaskin översvämmning
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.water_leak_sensor_158d0001bc1fab
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.pushbullet
+      data:
+        message: 'Diskmaskinen läcker'
+        title: 'Home Assistant'
+    

@@ -164,7 +164,11 @@ sensor.fibaro_system_fgd212_dimmer_2_power_management_3:
 #### Xiaomi
 binary_sensor.switch_158d00019ca56e:
   friendly_name: Knapp fönsterlampor
+binary_sensor.switch_158d00019c8c02:
+  friendly_name: Dörrklocka
 binary_sensor.door_window_sensor_158d0001b8623f:
   friendly_name: Balkongdörr
 sensor.temperature_158d0001c2a77b:
   friendly_name: Kylskåp (extra)
+binary_sensor.water_leak_sensor_158d0001bc1fab:
+  friendly_name: Diskmaskin översvämning
