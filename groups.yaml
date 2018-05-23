@@ -177,6 +177,7 @@ temperatures:
     - sensor.upm_esic_0002_temp
     - sensor.netatmo_vardagsrum_temperature_2
     - sensor.netatmo_ute_soder_temperature_2
+    - sensor.temperature_158d000223f3bc
     - sensor.smhi_air_temperature
     - sensor.yr_temperature
     - sensor.cputemperature

@@ -142,6 +142,7 @@ influxdb:
       - sensor.elevation
       - sensor.temperature_158d0001c2a77b
       - proximity.home
+      - sensor.temperature_158d000223f3bc
 
 
 # Shows device_tracker.ke on a map.

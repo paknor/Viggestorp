@@ -5,7 +5,7 @@ sensor.tunex_6601_bat:
 sensor.tunex_6601_hum:
   hidden: true
 sensor.tunex_8801_temp:
-  friendly_name: Ute norr
+  friendly_name: Ute norr 433
 sensor.tunex_8801_bat:
   hidden: true
 sensor.tunex_8801_hum:
@@ -170,5 +170,7 @@ binary_sensor.door_window_sensor_158d0001b8623f:
   friendly_name: Balkongdörr
 sensor.temperature_158d0001c2a77b:
   friendly_name: Kylskåp (extra)
+sensor.temperature_158d000223f3bc:
+  friendly_name: Ute norr
 binary_sensor.water_leak_sensor_158d0001bc1fab:
   friendly_name: Diskmaskin översvämning
