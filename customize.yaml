@@ -172,5 +172,7 @@ sensor.temperature_158d0001c2a77b:
   friendly_name: Kylskåp (extra)
 sensor.temperature_158d000223f3bc:
   friendly_name: Ute norr
+sensor.temperature_158d0001b8cac6:
+  friendly_name: Sovrum
 binary_sensor.water_leak_sensor_158d0001bc1fab:
   friendly_name: Diskmaskin översvämning

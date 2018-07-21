@@ -326,3 +326,11 @@ sensor.humidity_158d000223f3bc:
   name:
   platform: xiaomi_aqara
   unique_id: humidity158d000223f3bc
+sensor.humidity_158d0001b8cac6:
+  name:
+  platform: xiaomi_aqara
+  unique_id: humidity158d0001b8cac6
+sensor.temperature_158d0001b8cac6:
+  name:
+  platform: xiaomi_aqara
+  unique_id: temperature158d0001b8cac6

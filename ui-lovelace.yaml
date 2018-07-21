@@ -1,0 +1,125 @@
+﻿title: Viggestorp
+views:
+# FÖNSTERLAMPOR
+  - title: Fönsterlampor
+    panel: false
+    # Optional unique id for direct access /lovelace/${id}
+    id: winlight
+    #theme: dark-mode
+    # The cards to show on this view.
+    cards:
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+          
+      - type: entities
+        title: Fönsterlampor
+        show_header_toggle: true
+        entities:
+          - switch.win_livingroom_1
+          - switch.win_livingroom_2
+          - switch.win_kitchen1
+          - switch.win_kitchen2
+          - switch.win_bedroom
+          
+      - type: entity-filter
+        show_header_toggle: true
+        entities:
+          - switch.win_livingroom_1
+          - switch.win_livingroom_2
+          - switch.win_kitchen1
+          - switch.win_kitchen2
+          - switch.win_bedroom
+        state_filter:
+          - "on"
+        card:
+          type: glance
+          title: Tända fönsterlampor
+          
+      - type: picture-entity
+        image: http://stig.einarsson.se/images/atelje/ateljeu.jpg
+        entity: switch.win_bedroom
+          
+
+# TEMPERATURER          
+  - title: Temperaturer
+    # Optional unique id for direct access /lovelace/${id}
+    id: temperatures
+    #theme: dark-mode
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        title: Temperaturer
+        show_header_toggle: false
+        entities:
+          - sensor.temperature_158d000223f3bc
+          - sensor.netatmo_ute_soder_temperature_2
+
+# AUTOMATION
+  - title: Automation
+    panel: false
+    # Optional unique id for direct access /lovelace/${id}
+    id: auto
+    #theme: dark-mode
+    # The cards to show on this view.
+    cards:
+      - type: entity-filter
+        show_header_toggle: false
+        entities:
+          - automation.balkongdorr_oppnas
+          - automation.balkongdorr_stangs
+          - automation.brandlarm
+          - automation.diskmaskin_oversvammning
+          - automation.dorrklocka
+          - automation.dorrklocka_single_click
+          - automation.fonsterlampor_av_single_click
+          - automation.fonsterlampor_pa_double_click
+          - automation.godnatt_long_click_press
+          - automation.kaffet_ar_fardigt
+          - automation.ledstrip
+          - automation.ledstripljus
+          - automation.slack_fonsterlampor
+          - automation.slack_fonsterlampor_nar_tvn_stangs_av
+          - automation.slack_lampa_efter_rorelse
+          - automation.sovrum_taklampa_automatik
+          - automation.stang_av_kaffebryggaren_efter_30_minuter
+          - automation.stang_av_uttag_vid_sangen
+          - automation.starta_kaffebryggaren
+          - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_lampa_vid_rorelse
+        state_filter:
+          - "on"
+        card:
+          type: entities
+          title: Aktiva
+          
+      - type: entity-filter
+        show_header_toggle: false
+        entities:
+          - automation.balkongdorr_oppnas
+          - automation.balkongdorr_stangs
+          - automation.brandlarm
+          - automation.diskmaskin_oversvammning
+          - automation.dorrklocka
+          - automation.dorrklocka_single_click
+          - automation.fonsterlampor_av_single_click
+          - automation.fonsterlampor_pa_double_click
+          - automation.godnatt_long_click_press
+          - automation.kaffet_ar_fardigt
+          - automation.ledstrip
+          - automation.ledstripljus
+          - automation.slack_fonsterlampor
+          - automation.slack_fonsterlampor_nar_tvn_stangs_av
+          - automation.slack_lampa_efter_rorelse
+          - automation.sovrum_taklampa_automatik
+          - automation.stang_av_kaffebryggaren_efter_30_minuter
+          - automation.stang_av_uttag_vid_sangen
+          - automation.starta_kaffebryggaren
+          - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_lampa_vid_rorelse
+        state_filter:
+          - "off"
+        card:
+          type: entities
+          title: Avstängda

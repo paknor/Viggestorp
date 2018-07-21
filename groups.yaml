@@ -133,6 +133,7 @@ bedroom:
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
     - switch.sanglampa
+    - sensor.temperature_158d0001b8cac6
 
 hall:
   name: Hall
@@ -180,6 +181,7 @@ temperatures:
     - sensor.temperature_158d000223f3bc
     - sensor.smhi_air_temperature
     - sensor.yr_temperature
+    - sensor.temperature_158d0001b8cac6
     - sensor.cputemperature
     - sensor.cputemperatur_pi
     - sensor.temperatur_kallare
