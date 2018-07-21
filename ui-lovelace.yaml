@@ -81,12 +81,14 @@ views:
           - automation.ledstripljus
           - automation.slack_fonsterlampor
           - automation.slack_fonsterlampor_nar_tvn_stangs_av
+          - automation.slack_hallampa_efter_rorelse
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
           - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
         state_filter:
           - "on"
@@ -111,12 +113,14 @@ views:
           - automation.ledstripljus
           - automation.slack_fonsterlampor
           - automation.slack_fonsterlampor_nar_tvn_stangs_av
+          - automation.slack_hallampa_efter_rorelse
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
           - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
         state_filter:
           - "off"
