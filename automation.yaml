@@ -1,17 +1,17 @@
 ﻿#### TÄND_FÖNSTERLAMPOR MED SOLHÖJD
-- alias: Tänd fönsterlampor när solen står lågt
-  trigger:
-      platform: numeric_state
-      entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
-      below: 3.5
-  action:
-    - service: scene.turn_on
-      entity_id: scene.fonsterlampor_pa
-    - service: notify.pushbullet
-      data:
-        message: 'Tänder fönsterlampor'
-        title: 'Home Assistant'
+#- alias: Tänd fönsterlampor när solen står lågt
+#  trigger:
+#      platform: numeric_state
+#      entity_id: sun.sun
+#      value_template: '{{ state.attributes.elevation }}'
+#      below: 3.5
+#  action:
+#    - service: scene.turn_on
+#      entity_id: scene.fonsterlampor_pa
+#    - service: notify.pushbullet
+#      data:
+#        message: 'Tänder fönsterlampor'
+#        title: 'Home Assistant'
 
 #### TÄND_FÖNSTERLAMPOR PÅ KVÄLLEN
 #- alias: Tänd fönsterlampor innan solen går ner
@@ -27,20 +27,23 @@
 #        message: 'Tänder fönsterlampor'
 #        title: 'Home Assistant'
 
-#### TÄND_FÖNSTERLAMPOR PÅ KVÄLLEN MED LJUSSENSOR
-#- alias: Tänd fönsterlampor när det mörknar
-#  initial_state: 'off'
-#  trigger:
-#    - platform: state
-#      entity_id: sensor.is_dark
-#      from: 'False'
-#      to: 'True'
-# action:
-#    - service: light.turn_on
-#      data_template:
-#        entity_id: light.sn1_led
-#        brightness: 200
-#        rgb_color: [255, 0, 0]
+#### TÄND FÖNSTERLAMPOR MED LJUSSENSOR
+- alias: Tänd fönsterlampor med ljussensor
+  trigger:
+    platform: state
+    entity_id: sensor.is_dark
+    to: 'True'
+  condition:
+  - condition: time
+    after: '15:00:00'
+    before: '23:00:00'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.fonsterlampor_pa
+    - service: notify.pushbullet
+      data:
+        message: 'Tänder fönsterlampor'
+        title: 'Home Assistant'
 
 #### SLÄCK FÖNSTERLAMPOR
 - alias: Släck fönsterlampor
@@ -143,6 +146,18 @@
   action:
     service: switch.turn_off
     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+    
+#### Stäng av strykjärnet efter 15 minuter
+- alias: Stäng av strykjärnet efter 15 minuter
+  trigger:
+    platform: state
+    entity_id: switch.strykjarn
+    to: 'on'
+    for:
+      minutes: 45
+  action:
+    service: switch.turn_off
+    entity_id: switch.strykjarn
 
 #### Meddela när kaffet är färdigt
 - alias: Kaffet är färdigt
@@ -356,7 +371,7 @@
     service: light.turn_on
     data_template:
       entity_id: light.fibaro_system_fgd212_dimmer_2_level_5
-      brightness: 8
+      brightness: 5
     
 
 - alias: Släck hallampa efter rörelse

@@ -1,18 +1,174 @@
 ﻿title: Viggestorp
 views:
+# HUVUDMENY
+  - title: Huvudmeny
+    icon: mdi:home
+    id: home
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        title: Huvudmeny
+        entities:
+        - type: weblink
+          name: Kök
+          url: https://pi.einarsson.se/lovelace/kitchen
+          icon: mdi:stove
+
+        - type: weblink
+          name: Hall
+          url: https://pi.einarsson.se/lovelace/hall
+          icon: mdi:check
+
+        - type: weblink
+          name: Vardagsrum
+          url: https://pi.einarsson.se/lovelace/livingroom
+          icon: mdi:check
+
+# KÖK
+  - title: Kök
+    icon: mdi:stove
+    panel: false
+    id: kitchen
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        show_header_toggle: true
+        title: Belysning
+        entities:
+          - switch.win_kitchen1
+          - switch.win_kitchen2
+          
+      - type: entities
+        show_header_toggle: false
+        title: Kaffebryggare
+        entities:
+          - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+          - automation.stang_av_kaffebryggaren_efter_30_minuter
+          - automation.starta_kaffebryggaren
+          - sensor.coffee_time 
+          - sensor.coffee_brewing
+          - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+          - sensor.fibaro_system_fgwpef_wall_plug_gen5_energy
+          
+      - type: entities
+        show_header_toggle: false
+        title: Temperaturer
+        entities:
+          - sensor.tunex_6601_temp
+          - sensor.temperature_158d0001c2a77b
+          - sensor.tunex_1401_temp
+          - sensor.temperature_158d000223f3bc
+          
+      - type: entities
+        show_header_toggle: false
+        title: Media
+        entities:
+          - media_player.kok
+
+      - type: entities
+        show_header_toggle: false
+        title: Diverse
+        entities:
+          - binary_sensor.water_leak_sensor_158d0001bc1fab
+          - switch.strykjarn
+
+# HALL
+  - title: Hall
+    icon: mdi:check
+    id: hall
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        title: Belysning
+        show_header_toggle: true
+        entities:
+          - light.fibaro_system_fgd212_dimmer_2_level_3       
+          - light.fibaro_system_fgd212_dimmer_2_level_5
+          - sensor.pir_hall
+          
+      - type: entities
+        title: Förbrukning
+        show_header_toggle: false
+        entities:
+          - sensor.fibaro_system_fgd212_dimmer_2_power_3
+          - sensor.fibaro_system_fgd212_dimmer_2_energy_2        
+          - sensor.fibaro_system_fgd212_dimmer_2_power_5
+          - sensor.fibaro_system_fgd212_dimmer_2_energy_3
+          
+      - type: entities
+        title: Temperatur
+        show_header_toggle: false
+        entities:
+          - sensor.temperatur_hall
+          
+# VARDAGSRUM
+  - title: Vardagsrum
+    icon: mdi:check
+    panel: false
+    id: livingroom
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        show_header_toggle: true
+        title: Belysning
+        entities:
+          - switch.win_livingroom_1
+          - switch.win_livingroom_2
+          
+      - type: entities
+        show_header_toggle: false
+        title: Väderstation
+        entities:
+          - sensor.netatmo_vardagsrum_temperature_2
+          - sensor.netatmo_vardagsrum_humidity_2
+          - sensor.netatmo_vardagsrum_pressure_2
+          - sensor.netatmo_vardagsrum_co2_2
+          - sensor.netatmo_vardagsrum_noise_2
+          
+      - type: entities
+        show_header_toggle: false
+        title: Media
+        entities:
+          - media_player.tv_vardagsrum
+          
+      - type: entities
+        show_header_toggle: false
+        title: Diverse
+        entities:
+          - binary_sensor.door_window_sensor_158d0001b8623f
+          
+# SOVRUM
+  - title: Sovrum
+    id: sleeping
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        title: Belysning
+        show_header_toggle: false
+        entities:
+          - switch.win_bedroom
+          - light.fibaro_system_fgd212_dimmer_2_level
+          - switch.sanglampa
+          
+      - type: entities
+        title: Förbrukning
+        show_header_toggle: false
+        entities:
+          - sensor.fibaro_system_fgd212_dimmer_2_power
+          - sensor.fibaro_system_fgd212_dimmer_2_energy
+          
+      - type: entities
+        title: Temperatur
+        show_header_toggle: false
+        entities:
+          - sensor.temperature_158d0001b8cac6
+          
 # FÖNSTERLAMPOR
   - title: Fönsterlampor
     panel: false
-    # Optional unique id for direct access /lovelace/${id}
     id: winlight
-    #theme: dark-mode
     # The cards to show on this view.
     cards:
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.
-          
       - type: entities
         title: Fönsterlampor
         show_header_toggle: true
@@ -22,6 +178,7 @@ views:
           - switch.win_kitchen1
           - switch.win_kitchen2
           - switch.win_bedroom
+          - sensor.filtrerat_ljus_ute
           
       - type: entity-filter
         show_header_toggle: true
@@ -34,19 +191,13 @@ views:
         state_filter:
           - "on"
         card:
-          type: glance
+          type: entities
           title: Tända fönsterlampor
-          
-      - type: picture-entity
-        image: http://stig.einarsson.se/images/atelje/ateljeu.jpg
-        entity: switch.win_bedroom
           
 
 # TEMPERATURER          
   - title: Temperaturer
-    # Optional unique id for direct access /lovelace/${id}
     id: temperatures
-    #theme: dark-mode
     # The cards to show on this view.
     cards:
       - type: entities
@@ -55,6 +206,34 @@ views:
         entities:
           - sensor.temperature_158d000223f3bc
           - sensor.netatmo_ute_soder_temperature_2
+          
+      - type: history-graph
+        title: Utetemperaturer
+        show_header_toggle: false
+        refresh_interval: 1800
+        hours_to_show: 24
+        entities:
+          - sensor.temperature_158d000223f3bc
+          - sensor.netatmo_ute_soder_temperature_2
+
+# TRACKER
+  - title: Tracker
+    id: tracker
+    # The cards to show on this view.
+    cards:
+      - type: glance
+        title: Mobiler
+        entities:
+          - device_tracker.ke
+          - device_tracker.70700dd0ac07
+          
+      - type: map
+        title: Karta
+        aspect_ratio: 100%
+        entities:
+          - zone.home
+          - device_tracker.ke
+          - device_tracker.70700dd0ac07
 
 # AUTOMATION
   - title: Automation
@@ -64,7 +243,8 @@ views:
     #theme: dark-mode
     # The cards to show on this view.
     cards:
-      - type: entity-filter
+      - type: entities
+        title: Automation
         show_header_toggle: false
         entities:
           - automation.balkongdorr_oppnas
@@ -85,16 +265,17 @@ views:
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
+          - automation.stang_av_strykjarnet_efter_15_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
-          - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_fonsterlampor_med_ljussensor
           - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
-        state_filter:
-          - "on"
-        card:
-          type: entities
-          title: Aktiva
+        #state_filter:
+        #  - "on"
+        #card:
+        #  type: entities
+        #  title: Aktiva
           
       - type: entity-filter
         show_header_toggle: false
@@ -117,9 +298,10 @@ views:
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
+          - automation.stang_av_strykjarnet_efter_15_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
-          - automation.tand_fonsterlampor_nar_solen_star_lagt
+          - automation.tand_fonsterlampor_med_ljussensor
           - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
         state_filter:

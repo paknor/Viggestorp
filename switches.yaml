@@ -60,3 +60,12 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
+  
+- platform: mqtt
+  name: "Strykjärn"
+  command_topic: "cmnd/sonoff10/power"
+  state_topic: "stat/sonoff10/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

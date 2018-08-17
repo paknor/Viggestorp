@@ -65,11 +65,22 @@
       value_template: "{{ states.sensor.fibaro_system_fgwpef_wall_plug_gen5_power.state | float > 1000.0 }}" 
       friendly_name: "Brygger kaffe"
 
+################## Ljussensor
 - platform: template
   sensors:
     is_dark:
-      value_template: "{{ states.sensor.ljus01.state | int < 10 }}"
+      value_template: "{{ states.sensor.filtrerat_ljus_ute.state | int < 10 }}"
       friendly_name: 'Det är mörkt'
+
+- platform: filter
+  name: "Filtrerat ljus ute"
+  entity_id: sensor.ljus01
+  filters:
+    - filter: lowpass
+      time_constant: 5
+      precision: 0
+      
+##################
 
 - platform: yr
   monitored_conditions:
@@ -452,15 +463,6 @@
         {% elif states.sensor.smhi_weather_symbol.state | int == 26 %} Moderate snowfall
         {% elif states.sensor.smhi_weather_symbol.state | int == 27 %} Heavy snowfall
         {%- endif -%}
-
-################## Filter
-- platform: filter
-  name: "Filtrerat ljus ute"
-  entity_id: sensor.ljus01
-  filters:
-    - filter: lowpass
-      time_constant: 5
-      precision: 0
 
 ################## Speedtest
 - platform: speedtest

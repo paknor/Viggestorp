@@ -89,7 +89,7 @@ mqtt:
 
 media_player:
   - platform: samsungtv
-    host: 192.168.0.116
+    host: 192.168.0.112
     mac: 48:44:f7:55:44:f2
     name: TV vardagsrum
     scan_interval: 15
