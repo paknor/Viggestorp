@@ -93,9 +93,8 @@ kitchen:
   name: Kök
   control: hidden
   entities:
-    - sensor.tunex_6601_temp
-    - sensor.temperature_158d0001c2a77b
-    - sensor.tunex_1401_temp
+    - sensor.temperature_9
+    - sensor.temperature_7
     - binary_sensor.water_leak_sensor_158d0001bc1fab
     - switch.win_kitchen1
     - switch.win_kitchen2
@@ -115,7 +114,7 @@ livingroom:
     - media_player.slamsug
     - switch.win_livingroom_1
     - switch.win_livingroom_2
-    - binary_sensor.door_window_sensor_158d0001b8623f
+    - binary_sensor.openclose_11
     - sensor.netatmo_vardagsrum_co2_2
     - sensor.netatmo_vardagsrum_humidity_2
     - sensor.netatmo_vardagsrum_noise_2
@@ -133,7 +132,7 @@ bedroom:
     - sensor.fibaro_system_fgd212_dimmer_2_power
     - sensor.fibaro_system_fgd212_dimmer_2_energy
     - switch.sanglampa
-    - sensor.temperature_158d0001b8cac6
+    - sensor.temperatur_sovrum_2
 
 hall:
   name: Hall
@@ -171,8 +170,8 @@ temperatures:
   name: Temperaturer
   control: hidden
   entities:
-    - sensor.tunex_6601_temp
-    - sensor.tunex_1401_temp
+    - sensor.temperature_9
+    - sensor.temperature_7
     - sensor.tunex_8801_temp
     - sensor.upm_esic_0001_temp
     - sensor.upm_esic_0002_temp
@@ -181,7 +180,7 @@ temperatures:
     - sensor.temperature_158d000223f3bc
     - sensor.smhi_air_temperature
     - sensor.yr_temperature
-    - sensor.temperature_158d0001b8cac6
+    - sensor.temperatur_sovrum_2
     - sensor.cputemperature
     - sensor.cputemperatur_pi
     - sensor.temperatur_kallare

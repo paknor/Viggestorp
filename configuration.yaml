@@ -95,6 +95,7 @@ media_player:
     scan_interval: 15
   - platform: sonos
 
+
 #  - platform: spotify
 #    client_id: !secret spotify_client
 #    client_secret: !secret spotify_secret
@@ -123,8 +124,6 @@ influxdb:
   database: db_ha
   include:
     entities:
-      - sensor.tunex_6601_temp
-      - sensor.tunex_1401_temp
       - sensor.database
       - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
       - sensor.netatmo_ute_soder_humidity_2
@@ -140,11 +139,11 @@ influxdb:
       - sensor.yr_cloudiness
       - sensor.note_8_batteri
       - sensor.elevation
-      - sensor.temperature_158d0001c2a77b
       - proximity.home
       - sensor.temperature_158d000223f3bc
-      - sensor.temperature_158d0001b8cac6
-
+      - sensor.temperatur_sovrum_2
+      - sensor.temperature_7
+      - sensor.temperature_9
 
 # Shows device_tracker.ke on a map.
 camera:

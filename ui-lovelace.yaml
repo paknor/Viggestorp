@@ -1,32 +1,7 @@
 ﻿title: Viggestorp
 views:
-# HUVUDMENY
-  - title: Huvudmeny
-    icon: mdi:home
-    id: home
-    # The cards to show on this view.
-    cards:
-      - type: entities
-        title: Huvudmeny
-        entities:
-        - type: weblink
-          name: Kök
-          url: https://pi.einarsson.se/lovelace/kitchen
-          icon: mdi:stove
-
-        - type: weblink
-          name: Hall
-          url: https://pi.einarsson.se/lovelace/hall
-          icon: mdi:check
-
-        - type: weblink
-          name: Vardagsrum
-          url: https://pi.einarsson.se/lovelace/livingroom
-          icon: mdi:check
-
 # KÖK
   - title: Kök
-    icon: mdi:stove
     panel: false
     id: kitchen
     # The cards to show on this view.
@@ -54,10 +29,9 @@ views:
         show_header_toggle: false
         title: Temperaturer
         entities:
-          - sensor.tunex_6601_temp
-          - sensor.temperature_158d0001c2a77b
-          - sensor.tunex_1401_temp
           - sensor.temperature_158d000223f3bc
+          - sensor.temperature_9
+          - sensor.temperature_7
           
       - type: entities
         show_header_toggle: false
@@ -74,7 +48,6 @@ views:
 
 # HALL
   - title: Hall
-    icon: mdi:check
     id: hall
     # The cards to show on this view.
     cards:
@@ -101,9 +74,15 @@ views:
         entities:
           - sensor.temperatur_hall
           
+      - type: entities
+        show_header_toggle: false
+        title: Diverse
+        entities:
+          - binary_sensor.presence_4
+          - sensor.pir_hall
+          
 # VARDAGSRUM
   - title: Vardagsrum
-    icon: mdi:check
     panel: false
     id: livingroom
     # The cards to show on this view.
@@ -135,7 +114,7 @@ views:
         show_header_toggle: false
         title: Diverse
         entities:
-          - binary_sensor.door_window_sensor_158d0001b8623f
+          - binary_sensor.openclose_11
           
 # SOVRUM
   - title: Sovrum
@@ -161,7 +140,7 @@ views:
         title: Temperatur
         show_header_toggle: false
         entities:
-          - sensor.temperature_158d0001b8cac6
+          - sensor.temperatur_sovrum_2
           
 # FÖNSTERLAMPOR
   - title: Fönsterlampor
@@ -178,7 +157,9 @@ views:
           - switch.win_kitchen1
           - switch.win_kitchen2
           - switch.win_bedroom
+          - sensor.sun_set
           - sensor.filtrerat_ljus_ute
+          - sensor.ljus01
           
       - type: entity-filter
         show_header_toggle: true
@@ -193,6 +174,15 @@ views:
         card:
           type: entities
           title: Tända fönsterlampor
+          
+      - type: history-graph
+        title: Ljus
+        show_header_toggle: false
+        refresh_interval: 60
+        hours_to_show: 24
+        entities:
+          - sensor.filtrerat_ljus_ute
+          - sensor.ljus01
           
 
 # TEMPERATURER          
@@ -265,10 +255,11 @@ views:
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
-          - automation.stang_av_strykjarnet_efter_15_minuter
+          - automation.stang_av_strykjarnet_efter_45_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
           - automation.tand_fonsterlampor_med_ljussensor
+          - automation.tand_hallampa_1
           - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
         #state_filter:
@@ -298,10 +289,11 @@ views:
           - automation.slack_lampa_efter_rorelse
           - automation.sovrum_taklampa_automatik
           - automation.stang_av_kaffebryggaren_efter_30_minuter
-          - automation.stang_av_strykjarnet_efter_15_minuter
+          - automation.stang_av_strykjarnet_efter_45_minuter
           - automation.stang_av_uttag_vid_sangen
           - automation.starta_kaffebryggaren
           - automation.tand_fonsterlampor_med_ljussensor
+          - automation.tand_hallampa_1
           - automation.tand_hallampa_vid_rorelse
           - automation.tand_lampa_vid_rorelse
         state_filter:
@@ -309,3 +301,20 @@ views:
         card:
           type: entities
           title: Avstängda
+          
+# BATTERIER
+  - title: Batterier
+    id: batterier
+    # The cards to show on this view.
+    cards:
+      - type: entities
+        title: Batterier
+        show_header_toggle: false
+        entities:
+          - sensor.batt_door_balcony   
+          - sensor.batt_leak_dishwasher
+          - sensor.batt_switch_window
+          - sensor.batt_temp_north
+          - sensor.batt_temp_refrig
+          - sensor.batt_temp_sleep
+          - sensor.batt_temp_freezer

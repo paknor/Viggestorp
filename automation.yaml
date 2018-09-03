@@ -30,13 +30,8 @@
 #### TÄND FÖNSTERLAMPOR MED LJUSSENSOR
 - alias: Tänd fönsterlampor med ljussensor
   trigger:
-    platform: state
-    entity_id: sensor.is_dark
-    to: 'True'
-  condition:
-  - condition: time
-    after: '15:00:00'
-    before: '23:00:00'
+    platform: template
+    value_template: '{{ now().strftime("%H:%M") > (as_timestamp(states.sun.sun.attributes.next_setting) - 3600) | timestamp_custom("%H:%M") and states("sensor.is_dark") }}'
   action:
     - service: scene.turn_on
       entity_id: scene.fonsterlampor_pa
@@ -147,8 +142,8 @@
     service: switch.turn_off
     entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
     
-#### Stäng av strykjärnet efter 15 minuter
-- alias: Stäng av strykjärnet efter 15 minuter
+#### Stäng av strykjärnet efter 45 minuter
+- alias: Stäng av strykjärnet efter 45 minuter
   trigger:
     platform: state
     entity_id: switch.strykjarn
@@ -317,7 +312,7 @@
 - alias: Balkongdörr öppnas
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_window_sensor_158d0001b8623f
+      entity_id: binary_sensor.openclose_11
       from: 'off'
       to: 'on'
   action:
@@ -335,7 +330,7 @@
 - alias: Balkongdörr stängs
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_window_sensor_158d0001b8623f
+      entity_id: binary_sensor.openclose_11
       from: 'on'
       to: 'off'
   action:
@@ -388,3 +383,17 @@
   action:
     service: light.turn_off
     entity_id: light.fibaro_system_fgd212_dimmer_2_level_5
+    
+#### Tänd hallampa 1
+- alias: Tänd hallampa 1
+  trigger:
+    platform: state
+    entity_id: binary_sensor.presence_4
+    to: 'on'
+  condition:
+  - condition: time
+    after: '17:00:00'
+    before: '23:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.fibaro_system_fgd212_dimmer_2_level_3

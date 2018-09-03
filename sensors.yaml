@@ -69,7 +69,7 @@
 - platform: template
   sensors:
     is_dark:
-      value_template: "{{ states.sensor.filtrerat_ljus_ute.state | int < 10 }}"
+      value_template: "{{ states.sensor.filtrerat_ljus_ute.state | int <= 8 }}"
       friendly_name: 'Det är mörkt'
 
 - platform: filter
@@ -470,3 +470,35 @@
     - ping
     - download
     - upload
+
+    
+################## Batterier
+- platform: template
+  sensors:
+    batt_temp_north:
+      value_template: '{{ states.sensor.temperature_158d000223f3bc.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Temp. ute norr'
+      
+    batt_temp_refrig:
+      value_template: '{{ states.sensor.temperature_9.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Temp. kylskåp'
+      
+    batt_temp_sleep:
+      value_template: '{{ states.sensor.temperatur_sovrum_2.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Temp. sovrum'
+ 
+    batt_door_balcony:
+      value_template: '{{ states.binary_sensor.openclose_11.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Dörr balkong'
+      
+    batt_switch_window:
+      value_template: '{{ states.binary_sensor.switch_158d00019ca56e.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Knapp fönsterlampor'
+      
+    batt_leak_dishwasher:
+      value_template: '{{ states.binary_sensor.water_leak_sensor_158d0001bc1fab.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Diskmaskin översvämning'
+      
+    batt_temp_freezer:
+      value_template: '{{ states.sensor.temperature_7.attributes.battery_level | int }}'
+      friendly_name: 'Batteri Temp. frys'

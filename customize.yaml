@@ -1,20 +1,8 @@
-﻿sensor.tunex_6601_temp:
-  friendly_name: "Kylskåp"
-sensor.tunex_6601_bat:
-  hidden: true
-sensor.tunex_6601_hum:
-  hidden: true
-sensor.tunex_8801_temp:
+﻿sensor.tunex_8801_temp:
   friendly_name: Ute norr 433
 sensor.tunex_8801_bat:
   hidden: true
 sensor.tunex_8801_hum:
-  hidden: true
-sensor.tunex_1401_temp:
-  friendly_name: "Frysskåp"
-sensor.tunex_1401_bat:
-  hidden: true
-sensor.tunex_1401_hum:
   hidden: true
 sensor.upm_esic_0001_temp:
   friendly_name: "Förråd"
@@ -166,13 +154,9 @@ binary_sensor.switch_158d00019ca56e:
   friendly_name: Knapp fönsterlampor
 binary_sensor.switch_158d00019c8c02:
   friendly_name: Dörrklocka
-binary_sensor.door_window_sensor_158d0001b8623f:
-  friendly_name: Balkongdörr
-sensor.temperature_158d0001c2a77b:
-  friendly_name: Kylskåp (extra)
 sensor.temperature_158d000223f3bc:
   friendly_name: Ute norr
-sensor.temperature_158d0001b8cac6:
+sensor.temperatur_sovrum_2:
   friendly_name: Sovrum
 binary_sensor.water_leak_sensor_158d0001bc1fab:
   friendly_name: Diskmaskin översvämning
