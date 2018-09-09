@@ -31,7 +31,8 @@
 - alias: Tänd fönsterlampor med ljussensor
   trigger:
     platform: template
-    value_template: '{{ now().strftime("%H:%M") > (as_timestamp(states.sun.sun.attributes.next_setting) - 3600) | timestamp_custom("%H:%M") and states("sensor.is_dark") }}'
+    value_template: '{{ now().strftime("%H:%M") == states("sensor.winlight_on") }}'
+#    value_template: '{{ now().strftime("%H:%M") > (as_timestamp(states.sun.sun.attributes.next_setting) - 3600) | timestamp_custom("%H:%M") and states("sensor.is_dark") }}'
   action:
     - service: scene.turn_on
       entity_id: scene.fonsterlampor_pa
@@ -39,6 +40,7 @@
       data:
         message: 'Tänder fönsterlampor'
         title: 'Home Assistant'
+        
 
 #### SLÄCK FÖNSTERLAMPOR
 - alias: Släck fönsterlampor

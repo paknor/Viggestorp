@@ -154,9 +154,9 @@ binary_sensor.switch_158d00019ca56e:
   friendly_name: Knapp fönsterlampor
 binary_sensor.switch_158d00019c8c02:
   friendly_name: Dörrklocka
-sensor.temperature_158d000223f3bc:
-  friendly_name: Ute norr
 sensor.temperatur_sovrum_2:
   friendly_name: Sovrum
 binary_sensor.water_leak_sensor_158d0001bc1fab:
   friendly_name: Diskmaskin översvämning
+sensor.temperature_158d000223f3bc:
+  friendly_name: Temperatur ute norr
